@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface NSDate (JSCategory)
+#pragma mark 组件属性
 /**
  年单位
  */
@@ -94,7 +95,7 @@
  */
 @property (nonatomic ,readonly) BOOL isTomorrow;
 
-
+#pragma mark NSDate修饰
 /**
  获得若干年后的时间
  */
@@ -130,6 +131,7 @@
  */
 - (nullable NSDate *)dateByAddingSeconds:(NSInteger)seconds;
 
+#pragma mark NSDate格式化
 /**
  获取相应格式的字符串：@"yyyy-MM-dd HH:mm:ss"
  */
