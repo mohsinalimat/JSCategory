@@ -2,125 +2,125 @@
 //  NSDate+JSCategory.m
 //  JSCategoryDemo
 //
-//  Created by 菅思博 on 16/12/7.
+//  Created by 菅思博 on 16/12/12.
 //  Copyright © 2016年 菅思博. All rights reserved.
 //
 
 #import "NSDate+JSCategory.h"
 
-#import <time.h>
-
 @implementation NSDate (JSCategory)
-- (NSInteger)year
+#pragma mark 组件属性
+- (NSInteger)js_year
 {
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitYear
                                             fromDate:self] year];
 }
 
-- (NSInteger)month
+- (NSInteger)js_month
 {
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitMonth
                                             fromDate:self] month];
 }
 
-- (NSInteger)day
+- (NSInteger)js_day
 {
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitDay
                                             fromDate:self] day];
 }
 
-- (NSInteger)hour
+- (NSInteger)js_hour
 {
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitHour
                                             fromDate:self] hour];
 }
 
-- (NSInteger)minute
-{
-    return [[[NSCalendar currentCalendar] components:NSCalendarUnitMinute
-                                            fromDate:self] minute];
-}
-
-- (NSInteger)second
-{
-    return [[[NSCalendar currentCalendar] components:NSCalendarUnitSecond
-                                            fromDate:self] second];
-}
-
-- (NSInteger)nanosecond
-{
-    return [[[NSCalendar currentCalendar] components:NSCalendarUnitSecond
-                                            fromDate:self] nanosecond];
-}
-
-- (NSInteger)weekday
-{
-    return [[[NSCalendar currentCalendar] components:NSCalendarUnitWeekday
-                                            fromDate:self] weekday];
-}
-
-- (NSInteger)weekdayOrdinal
-{
-    return [[[NSCalendar currentCalendar] components:NSCalendarUnitWeekdayOrdinal
-                                            fromDate:self] weekdayOrdinal];
-}
-
-- (NSInteger)weekOfMonth
-{
-    return [[[NSCalendar currentCalendar] components:NSCalendarUnitWeekOfMonth
-                                            fromDate:self] weekOfMonth];
-}
-
-- (NSInteger)weekOfYear
-{
-    return [[[NSCalendar currentCalendar] components:NSCalendarUnitWeekOfYear
-                                            fromDate:self] weekOfYear];
-}
-
-- (NSInteger)quarter
+- (NSInteger)js_quarter
 {
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitQuarter
                                             fromDate:self] quarter];
 }
 
-- (BOOL)isLeapMonth
+- (NSInteger)js_minute
+{
+    return [[[NSCalendar currentCalendar] components:NSCalendarUnitMinute
+                                            fromDate:self] minute];
+}
+
+- (NSInteger)js_second
+{
+    return [[[NSCalendar currentCalendar] components:NSCalendarUnitSecond
+                                            fromDate:self] second];
+}
+
+- (NSInteger)js_nanosecond
+{
+    return [[[NSCalendar currentCalendar] components:NSCalendarUnitSecond
+                                            fromDate:self] nanosecond];
+}
+
+- (NSInteger)js_weekday
+{
+    return [[[NSCalendar currentCalendar] components:NSCalendarUnitWeekday
+                                            fromDate:self] weekday];
+}
+
+- (NSInteger)js_weekdayOrdinal
+{
+    return [[[NSCalendar currentCalendar] components:NSCalendarUnitWeekdayOrdinal
+                                            fromDate:self] weekdayOrdinal];
+}
+
+- (NSInteger)js_weekOfMonth
+{
+    return [[[NSCalendar currentCalendar] components:NSCalendarUnitWeekOfMonth
+                                            fromDate:self] weekOfMonth];
+}
+
+- (NSInteger)js_weekOfYear
+{
+    return [[[NSCalendar currentCalendar] components:NSCalendarUnitWeekOfYear
+                                            fromDate:self] weekOfYear];
+}
+
+- (BOOL)js_isLeapMonth
 {
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitQuarter
                                             fromDate:self] isLeapMonth];
 }
 
-- (BOOL)isLeapYear
+- (BOOL)js_isLeapYear
 {
-    NSUInteger year = self.year;
+    NSUInteger year = self.js_year;
     
     return ((year % 400 == 0) || ((year % 100 != 0) && (year % 4 == 0)));
 }
 
-- (BOOL)isToday
+- (BOOL)js_isYesterday
+{
+    NSDate *added = [self js_dateByAddingDays:1];
+    
+    return [added js_isToday];
+}
+
+- (BOOL)js_isToday
 {
     if (fabs(self.timeIntervalSinceNow) >= 60 * 60 * 24)
     {
         return NO;
     }
     
-    return [NSDate new].day == self.day;
+    return [NSDate new].js_day == self.js_day;
 }
 
-- (BOOL)isYesterday
+- (BOOL)js_isTomorrow
 {
-    NSDate *added = [self dateByAddingDays:1];
+    NSDate *added = [self js_dateByAddingDays:-1];
     
-    return [added isToday];
+    return [added js_isToday];
 }
 
-- (BOOL)isTomorrow
-{
-    NSDate *added = [self dateByAddingDays:-1];
-    
-    return [added isToday];
-}
-
-- (NSDate *)dateByAddingYears:(NSInteger)years
+#pragma mark NSDate修饰
+- (NSDate *)js_dateByAddingYears:(NSInteger)years
 {
     NSCalendar *calendar =  [NSCalendar currentCalendar];
     
@@ -133,7 +133,7 @@
                                     options:0];
 }
 
-- (NSDate *)dateByAddingMonths:(NSInteger)months
+- (NSDate *)js_dateByAddingMonths:(NSInteger)months
 {
     NSCalendar *calendar = [NSCalendar currentCalendar];
     
@@ -146,7 +146,7 @@
                                     options:0];
 }
 
-- (NSDate *)dateByAddingWeeks:(NSInteger)weeks
+- (NSDate *)js_dateByAddingWeeks:(NSInteger)weeks
 {
     NSCalendar *calendar = [NSCalendar currentCalendar];
     
@@ -159,7 +159,7 @@
                                     options:0];
 }
 
-- (NSDate *)dateByAddingDays:(NSInteger)days
+- (NSDate *)js_dateByAddingDays:(NSInteger)days
 {
     NSTimeInterval aTimeInterval = [self timeIntervalSinceReferenceDate] + 86400 * days;
     
@@ -168,7 +168,7 @@
     return newDate;
 }
 
-- (NSDate *)dateByAddingHours:(NSInteger)hours
+- (NSDate *)js_dateByAddingHours:(NSInteger)hours
 {
     NSTimeInterval aTimeInterval = [self timeIntervalSinceReferenceDate] + 3600 * hours;
     
@@ -177,7 +177,7 @@
     return newDate;
 }
 
-- (NSDate *)dateByAddingMinutes:(NSInteger)minutes
+- (NSDate *)js_dateByAddingMinutes:(NSInteger)minutes
 {
     NSTimeInterval aTimeInterval = [self timeIntervalSinceReferenceDate] + 60 * minutes;
     
@@ -186,7 +186,7 @@
     return newDate;
 }
 
-- (NSDate *)dateByAddingSeconds:(NSInteger)seconds
+- (NSDate *)js_dateByAddingSeconds:(NSInteger)seconds
 {
     NSTimeInterval aTimeInterval = [self timeIntervalSinceReferenceDate] + seconds;
     
@@ -195,7 +195,8 @@
     return newDate;
 }
 
-- (NSString *)stringWithFormat:(NSString *)format
+#pragma mark NSDate格式化
+- (NSString *)js_stringWithFormat:(NSString *)format
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     
@@ -206,9 +207,9 @@
     return [formatter stringFromDate:self];
 }
 
-- (NSString *)stringWithFormat:(NSString *)format
-                      timeZone:(NSTimeZone *)timeZone
-                        locale:(NSLocale *)locale
+- (NSString *)js_stringWithFormat:(NSString *)format
+                         timeZone:(NSTimeZone *)timeZone
+                           locale:(NSLocale *)locale
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     
@@ -227,7 +228,7 @@
     return [formatter stringFromDate:self];
 }
 
-- (NSString *)stringWithISOFormat
+- (NSString *)js_stringWithISOFormat
 {
     static NSDateFormatter *formatter = nil;
     
@@ -244,7 +245,7 @@
     return [formatter stringFromDate:self];
 }
 
-+ (NSDate *)dateWithISOFormatString:(NSString *)dateString
++ (NSDate *)js_dateWithISOFormatString:(NSString *)dateString
 {
     static NSDateFormatter *formatter = nil;
     
@@ -261,8 +262,8 @@
     return [formatter dateFromString:dateString];
 }
 
-+ (NSDate *)dateWithString:(NSString *)dateString
-                    format:(NSString *)format
++ (NSDate *)js_dateWithString:(NSString *)dateString
+                       format:(NSString *)format
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     
@@ -271,10 +272,10 @@
     return [formatter dateFromString:dateString];
 }
 
-+ (NSDate *)dateWithString:(NSString *)dateString
-                    format:(NSString *)format
-                  timeZone:(NSTimeZone *)timeZone
-                    locale:(NSLocale *)locale
++ (NSDate *)js_dateWithString:(NSString *)dateString
+                       format:(NSString *)format
+                     timeZone:(NSTimeZone *)timeZone
+                       locale:(NSLocale *)locale
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     

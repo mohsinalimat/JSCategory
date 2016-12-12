@@ -2,7 +2,7 @@
 //  NSData+JSCategory.h
 //  JSCategoryDemo
 //
-//  Created by 菅思博 on 16/12/8.
+//  Created by 菅思博 on 16/12/12.
 //  Copyright © 2016年 菅思博. All rights reserved.
 //
 
@@ -11,242 +11,215 @@
 @interface NSData (JSCategory)
 #pragma mark HASH
 /**
- 获取MD2 HASH 字符串
+ 获取md2 HASH 字符串
  */
-- (nullable NSString *)MD2String;
+- (NSString *)js_md2String;
 
 /**
- 获取MD2 HASH 二进制数据
+ 获取md2 HASH 二进制数据
  */
-- (nullable NSData *)MD2Data;
+- (NSData *)js_md2Data;
 
 /**
- 获取MD4 HASH 字符串
+ 获取md4 HASH 字符串
  */
-- (nullable NSString *)MD4String;
+- (NSString *)js_md4String;
 
 /**
- 获取MD4 HASH 二进制数据
+ 获取md4 HASH 二进制数据
  */
-- (nullable NSData *)MD4Data;
+- (NSData *)js_md4Data;
 
 /**
- 获取MD5 HASH 字符串
+ 获取md5 HASH 字符串
  */
-- (nullable NSString *)MD5String;
+- (NSString *)js_md5String;
 
 /**
- 获取MD5 HASH 二进制数据
+ 获取md5 HASH 二进制数据
  */
-- (nullable NSData *)MD5Data;
+- (NSData *)js_md5Data;
 
 /**
- 获取SHA1 HASH 字符串
+ 获取sha1 HASH 字符串
  */
-- (nullable NSString *)SHA1String;
+- (NSString *)js_sha1String;
 
 /**
- 获取SHA1 HASH 二进制数据
+ 获取sha1 HASH 二进制数据
  */
-- (nullable NSData *)SHA1Data;
+- (NSData *)js_sha1Data;
 
 /**
- 获取SHA224 HASH 字符串
+ 获取sha224 HASH 字符串
  */
-- (nullable NSString *)SHA224String;
+- (NSString *)js_sha224String;
 
 /**
- 获取SHA224 HASH 二进制数据
+ 获取sha224 HASH 二进制数据
  */
-- (nullable NSData *)SHA224Data;
+- (NSData *)js_sha224Data;
 
 /**
- 获取SHA256 HASH 字符串
+ 获取sha256 HASH 字符串
  */
-- (nullable NSString *)SHA256String;
+- (NSString *)js_sha256String;
 
 /**
- 获取SHA256 HASH 二进制数据
+ 获取sha256 HASH 二进制数据
  */
-- (nullable NSData *)SHA256Data;
+- (NSData *)js_sha256Data;
 
 /**
- 获取SHA384 HASH 字符串
+ 获取sha384 HASH 字符串
  */
-- (nullable NSString *)SHA384String;
+- (NSString *)js_sha384String;
 
 /**
- 获取SHA384 HASH 二进制数据
+ 获取sha384 HASH 二进制数据
  */
-- (nullable NSData *)SHA384Data;
+- (NSData *)js_sha384Data;
 
 /**
- 获取SHA512 HASH 字符串
+ 获取sha512 HASH 字符串
  */
-- (nullable NSString *)SHA512String;
+- (NSString *)js_sha512String;
 
 /**
- 获取SHA512 HASH 二进制数据
+ 获取sha512 HASH 二进制数据
  */
-- (nullable NSData *)SHA512Data;
+- (NSData *)js_sha512Data;
 
 /**
- 将秘钥以MD5算法运算，获取相应的HMAC字符串
- @param key  HMAC秘钥
+ 将秘钥以md5算法运算，获取相应的hmac字符串
+ @param key  hmac秘钥
  */
-- (nullable NSString *)HMACMD5StringWithKey:(nullable NSString *)key;
+- (NSString *)js_hmacMD5StringWithKey:(NSString *)key;
 
 /**
- 将秘钥以MD5算法运算，获取相应的HMAC二进制数据
- @param key  HMAC秘钥
+ 将秘钥以md5算法运算，获取相应的hmac二进制数据
+ @param key  hmac秘钥
  */
-- (nullable NSData *)HMACMD5DataWithKey:(nullable NSData *)key;
+- (NSData *)js_hmacMD5DataWithKey:(NSData *)key;
 
 /**
- 将秘钥以SHA1算法运算，获取相应的HMAC字符串
- @param key  HMAC秘钥
+ 将秘钥以sha1算法运算，获取相应的hmac字符串
+ @param key  hmac秘钥
  */
-- (nullable NSString *)HMACSHA1StringWithKey:(nullable NSString *)key;
+- (NSString *)js_hmacSHA1StringWithKey:(NSString *)key;
 
 /**
- 将秘钥以SHA1算法运算，获取相应的HMAC二进制数据
- @param key  HMAC秘钥
+ 将秘钥以sha1算法运算，获取相应的hmac二进制数据
+ @param key  hmac秘钥
  */
-- (nullable NSData *)HMACSHA1DataWithKey:(nullable NSData *)key;
+- (NSData *)js_hmacSHA1DataWithKey:(NSData *)key;
 
 /**
- 将秘钥以SHA224算法运算，获取相应的HMAC字符串
- @param key  HMAC秘钥
+ 将秘钥以sha224算法运算，获取相应的hmac字符串
+ @param key  hmac秘钥
  */
-- (nullable NSString *)HMACSHA224StringWithKey:(nullable NSString *)key;
+- (NSString *)js_hmacSHA224StringWithKey:(NSString *)key;
 
 /**
- 将秘钥以SHA224算法运算，获取相应的HMAC二进制数据
- @param key  HMAC秘钥
+ 将秘钥以sha224算法运算，获取相应的hmac二进制数据
+ @param key  hmac秘钥
  */
-- (nullable NSData *)HMACSHA224DataWithKey:(nullable NSData *)key;
+- (NSData *)js_hmacSHA224DataWithKey:(NSData *)key;
 
 /**
- 将秘钥以SHA256算法运算，获取相应的HMAC字符串
- @param key  HMAC秘钥
+ 将秘钥以sha256算法运算，获取相应的hmac字符串
+ @param key  hmac秘钥
  */
-- (nullable NSString *)HMACSHA256StringWithKey:(nullable NSString *)key;
+- (NSString *)js_hmacSHA256StringWithKey:(NSString *)key;
 
 /**
- 将秘钥以SHA256算法运算，获取相应的HMAC二进制数据
- @param key  HMAC秘钥
+ 将秘钥以sha256算法运算，获取相应的hmac二进制数据
+ @param key  hmac秘钥
  */
-- (nullable NSData *)HMACSHA256DataWithKey:(nullable NSData *)key;
+- (NSData *)js_hmacSHA256DataWithKey:(NSData *)key;
 
 /**
- 将秘钥以SHA384算法运算，获取相应的HMAC字符串
- @param key  HMAC秘钥
+ 将秘钥以sha384算法运算，获取相应的hmac字符串
+ @param key  hmac秘钥
  */
-- (nullable NSString *)HMACSHA384StringWithKey:(nullable NSString *)key;
+- (NSString *)js_hmacSHA384StringWithKey:(NSString *)key;
 
 /**
- 将秘钥以SHA384算法运算，获取相应的HMAC二进制数据
- @param key  HMAC秘钥
+ 将秘钥以sha384算法运算，获取相应的hmac二进制数据
+ @param key  hmac秘钥
  */
-- (nullable NSData *)HMACSHA384DataWithKey:(nullable NSData *)key;
+- (NSData *)js_hmacSHA384DataWithKey:(NSData *)key;
 
 /**
- 将秘钥以SHA512算法运算，获取相应的HMAC字符串
- @param key  HMAC秘钥
+ 将秘钥以sha512算法运算，获取相应的hmac字符串
+ @param key  hmac秘钥
  */
-- (nullable NSString *)HMACSHA512StringWithKey:(nullable NSString *)key;
+- (NSString *)js_hmacSHA512StringWithKey:(NSString *)key;
 
 /**
- 将秘钥以SHA512算法运算，获取相应的HMAC二进制数据
- @param key  HMAC秘钥
+ 将秘钥以sha512算法运算，获取相应的hmac二进制数据
+ @param key  hmac秘钥
  */
-- (nullable NSData *)HMACSHA512DataWithKey:(nullable NSData *)key;
+- (NSData *)js_hmacSHA512DataWithKey:(NSData *)key;
 
 /**
- 获取CRC32 HASH 字符串
+ 获取crc32 HASH 字符串
  */
-- (nullable NSString *)CRC32String;
+- (NSString *)js_crc32String;
 
 /**
- 获取CRC32 HASH
+ 获取crc32 HASH
  */
-- (uint32_t)CRC32;
+- (uint32_t)js_crc32;
 
 #pragma mark 加密与解密
 /**
- 获取使用AES256加密的二进制数据
+ 获取使用aes256加密的二进制数据
  
  @param key   秘钥：长度为16、24或32位（128, 192 or 256bits）
  @param iv    初始化向量：长度16位（128bits）
  */
-- (nullable NSData *)AES256EncryptWithKey:(nullable NSData *)key
-                                       iv:(nullable NSData *)iv;
+- (NSData *)js_aes256EncryptWithKey:(NSData *)key
+                                 iv:(NSData *)iv;
 
 /**
- 获取AES256解密的二进制数据
+ 获取aes256解密的二进制数据
  
  @param key   秘钥：长度为16、24或32位（128, 192 or 256bits）
  @param iv    初始化向量：长度16位（128bits）
  */
-- (nullable NSData *)AES256DecryptWithkey:(nullable NSData *)key
-                                       iv:(nullable NSData *)iv;
+- (NSData *)js_aes256DecryptWithkey:(NSData *)key
+                                 iv:(NSData *)iv;
 
 #pragma mark 编码与解码
 /**
  获取UTF8解码的字符串
  */
-- (nullable NSString *)UTF8String;
+- (NSString *)js_utf8String;
 
 /**
  获取大写的十六进制字符串
  */
-- (nullable NSString *)HexString;
+- (NSString *)js_hexString;
 
 /**
  获取十六进制字符串的二进制数据
  */
-+ (nullable NSData *)dataWithHexString:(nullable NSString *)hexString;
++ (NSData *)js_dataWithHexString:(NSString *)hexString;
 
 /**
  获取base64编码的字符串
  */
-- (nullable NSString *)base64EncodedString;
+- (NSString *)js_base64EncodedString;
 
 /**
  获取base64编码的字符串的二进制数据
  */
-+ (nullable NSData *)dataWithBase64EncodedString:(nullable NSString *)base64EncodedString;
++ (NSData *)js_dataWithBase64EncodedString:(NSString *)base64EncodedString;
 
 /**
- 获取解码获得数组或字典
+ 获取解码后得到的NSDictionary或NSArray
  */
-- (nullable id)jsonValueDecoded;
-
-#pragma mark 压缩与解压缩
-/**
- 获取GZIP解压缩后的数据
- */
-- (nullable NSData *)gzipInflate;
-
-/**
- 获取GZIP压缩后的数据：默认压缩级别
- */
-- (nullable NSData *)gzipDeflate;
-
-/**
- 获取ZLIB解压缩后的数据
- */
-- (nullable NSData *)zlibInflate;
-
-/**
- 获取ZLIB压缩后的数据：默认压缩级别
- */
-- (nullable NSData *)zlibDeflate;
-
-#pragma mark Other
-/**
- 创建二进制数据文件
- */
-+ (nullable NSData *)dataNamed:(nullable NSString *)name;
+- (id)js_jsonValueDecoded;
 
 @end
