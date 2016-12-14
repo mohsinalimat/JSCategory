@@ -10,6 +10,9 @@
 
 #import "NSDate+JSCategory.h"
 #import "NSString+JSCategory.h"
+#import "UIDevice+JSCategory.h"
+#import "UIColor+JSCategory.h"
+#import "UIButton+JSCategory.h"
 
 @interface ViewController ()
 
@@ -20,15 +23,37 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSString *number = @"15";
+    char num;
     
 //    [self NSDate_JSCategory];
 //    NSLog(@"%@", [[NSString stringWithFormat:@"www.baidu.com/上海市/"] js_stringByURLEncode]);
 //    
-////    NSLog(@"%@", [NSString js_stringWithBase64EncodedString:@"5LiK5rW35biC5pmu6ZmA5Yy6"]);
-////    NSLog(@"%@", [[NSString stringWithFormat:@"www.baidu.com/%%E4%%B8%%8A%%E6%%B5%%B7%%E5%%B8%%82/"] js_stringByURLDecode]);
+//    NSLog(@"%@", [NSString js_stringWithBase64EncodedString:@"5LiK5rW35biC5pmu6ZmA5Yy6"]);
+//    NSLog(@"%@", [[NSString stringWithFormat:@"www.baidu.com/%%E4%%B8%%8A%%E6%%B5%%B7%%E5%%B8%%82/"] js_stringByURLDecode]);
 //    NSLog(@"%@", [@"www.baidu.com/%E4%B8%8A%E6%B5%B7%E5%B8%82/" js_stringByURLDecode]);
-    NSLog(@"%@", [[NSString stringWithFormat:@"13337198995"] js_matchesRegex:@"^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$"
-                                                                     options:NSRegularExpressionCaseInsensitive] ? @"YES" : @"NO");
+//    NSLog(@"%@", [[NSString stringWithFormat:@"133371989"] js_matchesRegex:@"^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$"
+//                                                                     options:NSRegularExpressionCaseInsensitive] ? @"YES" : @"NO");
+//    num = [number js_charValue];
+//    NSLog(@"%@", [[UIDevice currentDevice] js_ipAddressWIFI] ? @"YES" : @"NO ");
+//    NSLog(@"%llu", [[UIDevice currentDevice] js_getNetworkTrafficBytes:JSNetworkTrafficTypeALL] / 1048576);
+//    
+//    self.view.backgroundColor = JSColorRGBA(122.0f, 0.0f, 224.0f, 1.0f);
+//    self.view.backgroundColor = JSColorHEX(#9000E3, 1.0);
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    button.backgroundColor = [UIColor yellowColor];
+    
+    [button setImage:[UIImage imageNamed:@"tabbar_red_1"] forState:UIControlStateNormal];
+    [button setTitle:@"上海" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    
+    button.frame = CGRectMake(100, 100, 100, 50);
+    
+    [self.view addSubview:button];
+    
+    [button setButtonImageTitleStyle:3 spacing:10.0f];
 }
 
 #pragma mark NSDate+JSCategory

@@ -89,7 +89,7 @@
             js_hmacSHA512StringWithKey:key];
 }
 
-- (NSString *)crc32String
+- (NSString *)js_crc32String
 {
     return [[self dataUsingEncoding:NSUTF8StringEncoding] js_crc32String];
 }
@@ -234,7 +234,8 @@
         
         CGRect rect = [self boundingRectWithSize:size
                                          options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
-                                      attributes:attr context:nil];
+                                      attributes:attr
+                                         context:nil];
         
         result = rect.size;
     }
@@ -247,6 +248,7 @@
                       lineBreakMode:lineBreakMode];
 #pragma clang diagnostic pop
     }
+    
     return result;
 }
 

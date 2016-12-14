@@ -88,7 +88,7 @@
 /**
  获取crc32 HASH 字符串
  */
-- (NSString *)crc32String;
+- (NSString *)js_crc32String;
 
 #pragma mark 编码与解码
 /**
