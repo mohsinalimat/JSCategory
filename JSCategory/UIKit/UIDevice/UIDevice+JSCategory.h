@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface UIDevice (JSCategory)
 #pragma mark 设备信息
 /**
@@ -172,3 +174,5 @@ typedef NS_OPTIONS (NSUInteger, JSNetworkTrafficType)
 @property (nullable, nonatomic, readonly) NSArray<NSNumber *> *js_cpuUsagePerProcessor;
 
 @end
+
+NS_ASSUME_NONNULL_END

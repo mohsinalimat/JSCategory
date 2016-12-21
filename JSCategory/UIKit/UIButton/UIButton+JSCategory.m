@@ -12,8 +12,8 @@
 
 @implementation UIButton (JSCategory)
 #pragma mark 图片文字布局
-- (void)setButtonImageTitleStyle:(JSButtonImageTitleStyle)style
-                         spacing:(CGFloat)spacing
+- (void)js_setButtonImageTitleStyle:(JSButtonImageTitleStyle)style
+                            spacing:(CGFloat)spacing
 {
     CGFloat imageWidth = self.imageView.image.size.width;
     CGFloat imageHeight = self.imageView.image.size.height;

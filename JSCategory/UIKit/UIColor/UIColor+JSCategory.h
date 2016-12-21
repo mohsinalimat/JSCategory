@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 #ifndef JSColorHEX
 #define JSColorHEX(_hex_, _a_)   [UIColor js_colorWithHexString:((__bridge NSString *)CFSTR(#_hex_)) alpha:(_a_)]
 #endif
@@ -22,4 +24,7 @@
  获取相应的十六进制字符串对应的颜色
  */
 + (UIColor *)js_colorWithHexString:(NSString *)hexString alpha:(CGFloat)alpha;
+
 @end
+
+NS_ASSUME_NONNULL_END

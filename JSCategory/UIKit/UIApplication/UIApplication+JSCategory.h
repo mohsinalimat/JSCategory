@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface UIApplication (JSCategory)
 #pragma mark 组件属性
 /**
@@ -49,3 +51,5 @@
 @property (nullable, nonatomic, readonly) NSString *js_appBuildVersion;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef NS_ENUM (NSInteger, JSButtonImageTitleStyle)
 {
     JSButtonImageTitleStyleLeft   = 0,  //图片在左，文字在右，整体居中。
@@ -22,7 +24,9 @@ typedef NS_ENUM (NSInteger, JSButtonImageTitleStyle)
  利用UIButton的titleEdgeInsets和imageEdgeInsets来实现文字和图片的自由排列
  注意: 这个方法需要在设置图片和文字之后才可以调用, 且button的大小要大于图片大小+文字大小+spacing
  */
-- (void)setButtonImageTitleStyle:(JSButtonImageTitleStyle)style
-                         spacing:(CGFloat)spacing;
+- (void)js_setButtonImageTitleStyle:(JSButtonImageTitleStyle)style
+                            spacing:(CGFloat)spacing;
 
 @end
+
+NS_ASSUME_NONNULL_END

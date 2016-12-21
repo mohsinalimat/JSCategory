@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSDate (JSCategory)
 #pragma mark 组件属性
 /**
@@ -178,3 +180,5 @@
                        locale:(NSLocale *)locale;
 
 @end
+
+NS_ASSUME_NONNULL_END

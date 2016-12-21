@@ -8,11 +8,13 @@
 
 #import "ViewController.h"
 
-#import "NSDate+JSCategory.h"
-#import "NSString+JSCategory.h"
-#import "UIDevice+JSCategory.h"
-#import "UIColor+JSCategory.h"
-#import "UIButton+JSCategory.h"
+//#import "NSDate+JSCategory.h"
+//#import "NSString+JSCategory.h"
+//#import "UIDevice+JSCategory.h"
+//#import "UIColor+JSCategory.h"
+//#import "UIButton+JSCategory.h"
+//#import "UIView+JSCategory.h"
+#import "JSCategory.h"
 
 @interface ViewController ()
 
@@ -23,8 +25,53 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSString *number = @"15";
-    char num;
+    
+    UIImageView *ii = [[UIImageView alloc] initWithFrame:CGRectMake(50, 50, 50, 50)];
+    ii.backgroundColor = [UIColor yellowColor];
+    [self.view addSubview:ii];
+    ii.image = [[UIImage imageNamed:@"tabbar_red_1"] js_imageByInsetEdge:UIEdgeInsetsMake(-10, -10, -10, -10)
+                                                               withColor:[UIColor redColor]];
+    
+//    NSData *gif = [NSData dataWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"2"
+//                                                                                  ofType:@"gif"]];
+//    
+//    NSData *data = UIImageJPEGRepresentation([UIImage imageNamed:@"tabbar_red_1"], 1.0f);
+//    
+//    NSLog(@"%@", [UIImage js_isAnimatedGIFData:data] ? @"YES" : @"NO");
+//    
+//    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 100, 300, 150)];
+//    imageView.backgroundColor = [UIColor yellowColor];
+////
+//////    imageView.image = [UIImage js_imageWithSmallGIFData:data scale:0.5f];
+//    imageView.image = [UIImage js_imageWithEmoji:@"[男厕]"
+//                                            size:5.0f];
+////    
+//    [self.view addSubview:imageView];
+//
+//    NSData *pdf = [self.view js_snapshotPDF];
+//    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        UIImageView *pdfImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 375, 667)];
+//        pdfImageView.backgroundColor = [UIColor yellowColor];
+//        [self.view addSubview:pdfImageView];
+//        pdfImageView.image = [UIImage js_imageWithPDF:pdf
+//                                                 size:CGSizeMake(350, 650)];
+//    });
+    
+//    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+//    view.backgroundColor = [UIColor redColor];
+//    
+//    [self.view addSubview:view];
+//    
+//    NSLog(@"%f", [view js_top]);
+//    NSLog(@"%f", [view js_left]);
+//    NSLog(@"%f", [view js_right]);
+//    NSLog(@"%f", [view js_bottom]);
+//    
+//    NSLog(@"%f", [view js_width]);
+    
+//    NSString *number = @"15";
+//    char num;
     
 //    [self NSDate_JSCategory];
 //    NSLog(@"%@", [[NSString stringWithFormat:@"www.baidu.com/上海市/"] js_stringByURLEncode]);
@@ -41,19 +88,19 @@
 //    self.view.backgroundColor = JSColorRGBA(122.0f, 0.0f, 224.0f, 1.0f);
 //    self.view.backgroundColor = JSColorHEX(#9000E3, 1.0);
     
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    
-    button.backgroundColor = [UIColor yellowColor];
-    
-    [button setImage:[UIImage imageNamed:@"tabbar_red_1"] forState:UIControlStateNormal];
-    [button setTitle:@"上海" forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    
-    button.frame = CGRectMake(100, 100, 100, 50);
-    
-    [self.view addSubview:button];
-    
-    [button setButtonImageTitleStyle:3 spacing:10.0f];
+//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+//    
+//    button.backgroundColor = [UIColor yellowColor];
+//    
+//    [button setImage:[UIImage imageNamed:@"tabbar_red_1"] forState:UIControlStateNormal];
+//    [button setTitle:@"上海" forState:UIControlStateNormal];
+//    [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+//    
+//    button.frame = CGRectMake(100, 100, 100, 50);
+//    
+//    [self.view addSubview:button];
+//    
+//    [button js_setButtonImageTitleStyle:3 spacing:10.0f];
 }
 
 #pragma mark NSDate+JSCategory
