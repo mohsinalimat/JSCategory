@@ -13,8 +13,7 @@
 
 @implementation NSData (JSCategory)
 #pragma mark HASH
-- (NSString *)js_md2String
-{
+- (NSString *)js_md2String {
     unsigned char result[CC_MD2_DIGEST_LENGTH];
     
     CC_MD2(self.bytes, (CC_LONG)self.length, result);
@@ -28,8 +27,7 @@
             ];
 }
 
-- (NSData *)js_md2Data
-{
+- (NSData *)js_md2Data {
     unsigned char result[CC_MD2_DIGEST_LENGTH];
     
     CC_MD2(self.bytes, (CC_LONG)self.length, result);
@@ -37,8 +35,7 @@
     return [NSData dataWithBytes:result length:CC_MD2_DIGEST_LENGTH];
 }
 
-- (NSString *)js_md4String
-{
+- (NSString *)js_md4String {
     unsigned char result[CC_MD4_DIGEST_LENGTH];
     
     CC_MD4(self.bytes, (CC_LONG)self.length, result);
@@ -52,8 +49,7 @@
             ];
 }
 
-- (NSData *)js_md4Data
-{
+- (NSData *)js_md4Data {
     unsigned char result[CC_MD4_DIGEST_LENGTH];
     
     CC_MD4(self.bytes, (CC_LONG)self.length, result);
@@ -61,8 +57,7 @@
     return [NSData dataWithBytes:result length:CC_MD4_DIGEST_LENGTH];
 }
 
-- (NSString *)js_md5String
-{
+- (NSString *)js_md5String {
     unsigned char result[CC_MD5_DIGEST_LENGTH];
     
     CC_MD5(self.bytes, (CC_LONG)self.length, result);
@@ -77,8 +72,7 @@
 
 }
 
-- (NSData *)js_md5Data
-{
+- (NSData *)js_md5Data {
     unsigned char result[CC_MD5_DIGEST_LENGTH];
     
     CC_MD5(self.bytes, (CC_LONG)self.length, result);
@@ -86,8 +80,7 @@
     return [NSData dataWithBytes:result length:CC_MD5_DIGEST_LENGTH];
 }
 
-- (NSString *)js_sha1String
-{
+- (NSString *)js_sha1String {
     unsigned char result[CC_SHA1_DIGEST_LENGTH];
     
     CC_SHA1(self.bytes, (CC_LONG)self.length, result);
@@ -103,8 +96,7 @@
     return hash;
 }
 
-- (NSData *)js_sha1Data
-{
+- (NSData *)js_sha1Data {
     unsigned char result[CC_SHA1_DIGEST_LENGTH];
     
     CC_SHA1(self.bytes, (CC_LONG)self.length, result);
@@ -112,8 +104,7 @@
     return [NSData dataWithBytes:result length:CC_SHA1_DIGEST_LENGTH];
 }
 
-- (NSString *)js_sha224String
-{
+- (NSString *)js_sha224String {
     unsigned char result[CC_SHA224_DIGEST_LENGTH];
     
     CC_SHA224(self.bytes, (CC_LONG)self.length, result);
@@ -121,8 +112,7 @@
     NSMutableString *hash = [NSMutableString
                              stringWithCapacity:CC_SHA224_DIGEST_LENGTH * 2];
     
-    for (int i = 0; i < CC_SHA224_DIGEST_LENGTH; i++)
-    {
+    for (int i = 0; i < CC_SHA224_DIGEST_LENGTH; i++) {
         [hash appendFormat:@"%02x", result[i]];
     }
     

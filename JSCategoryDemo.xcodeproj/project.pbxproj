@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		FD11E9941E0A1BF600810022 /* UIView+JSCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = FD11E9931E0A1BF600810022 /* UIView+JSCategory.m */; };
 		FD11E99B1E0A389A00810022 /* UIImage+JSCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = FD11E99A1E0A389A00810022 /* UIImage+JSCategory.m */; };
-		FD11E99F1E0A3C1A00810022 /* 1.gif in Resources */ = {isa = PBXBuildFile; fileRef = FD11E99C1E0A3C1A00810022 /* 1.gif */; };
-		FD11E9A01E0A3C1A00810022 /* 2.gif in Resources */ = {isa = PBXBuildFile; fileRef = FD11E99D1E0A3C1A00810022 /* 2.gif */; };
-		FD11E9A11E0A3C1A00810022 /* 3.gif in Resources */ = {isa = PBXBuildFile; fileRef = FD11E99E1E0A3C1A00810022 /* 3.gif */; };
 		FD2976DB1E00E26B00669376 /* NSData+JSCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2976CF1E00E26B00669376 /* NSData+JSCategory.m */; };
 		FD2976DC1E00E26B00669376 /* NSDate+JSCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2976D21E00E26B00669376 /* NSDate+JSCategory.m */; };
 		FD2976DD1E00E26B00669376 /* NSNumber+JSCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2976D51E00E26B00669376 /* NSNumber+JSCategory.m */; };
@@ -27,26 +24,7 @@
 		FD9481AB1DF80E8D00AB75F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD9481A91DF80E8D00AB75F3 /* Main.storyboard */; };
 		FD9481AD1DF80E8D00AB75F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD9481AC1DF80E8D00AB75F3 /* Assets.xcassets */; };
 		FD9481B01DF80E8D00AB75F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD9481AE1DF80E8D00AB75F3 /* LaunchScreen.storyboard */; };
-		FD9481BB1DF80E8D00AB75F3 /* JSCategoryDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9481BA1DF80E8D00AB75F3 /* JSCategoryDemoTests.m */; };
-		FD9481C61DF80E8D00AB75F3 /* JSCategoryDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9481C51DF80E8D00AB75F3 /* JSCategoryDemoUITests.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		FD9481B71DF80E8D00AB75F3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FD9481951DF80E8D00AB75F3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FD94819C1DF80E8D00AB75F3;
-			remoteInfo = JSCategoryDemo;
-		};
-		FD9481C21DF80E8D00AB75F3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FD9481951DF80E8D00AB75F3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FD94819C1DF80E8D00AB75F3;
-			remoteInfo = JSCategoryDemo;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		FD11E9901E0A19A500810022 /* JSCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSCategory.h; sourceTree = "<group>"; };
@@ -54,9 +32,6 @@
 		FD11E9931E0A1BF600810022 /* UIView+JSCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JSCategory.m"; sourceTree = "<group>"; };
 		FD11E9991E0A389A00810022 /* UIImage+JSCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JSCategory.h"; sourceTree = "<group>"; };
 		FD11E99A1E0A389A00810022 /* UIImage+JSCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JSCategory.m"; sourceTree = "<group>"; };
-		FD11E99C1E0A3C1A00810022 /* 1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 1.gif; sourceTree = "<group>"; };
-		FD11E99D1E0A3C1A00810022 /* 2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 2.gif; sourceTree = "<group>"; };
-		FD11E99E1E0A3C1A00810022 /* 3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 3.gif; sourceTree = "<group>"; };
 		FD2976CE1E00E26B00669376 /* NSData+JSCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+JSCategory.h"; sourceTree = "<group>"; };
 		FD2976CF1E00E26B00669376 /* NSData+JSCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+JSCategory.m"; sourceTree = "<group>"; };
 		FD2976D11E00E26B00669376 /* NSDate+JSCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+JSCategory.h"; sourceTree = "<group>"; };
@@ -91,12 +66,6 @@
 		FD9481AC1DF80E8D00AB75F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD9481AF1DF80E8D00AB75F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD9481B11DF80E8D00AB75F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FD9481B61DF80E8D00AB75F3 /* JSCategoryDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSCategoryDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD9481BA1DF80E8D00AB75F3 /* JSCategoryDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSCategoryDemoTests.m; sourceTree = "<group>"; };
-		FD9481BC1DF80E8D00AB75F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FD9481C11DF80E8D00AB75F3 /* JSCategoryDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSCategoryDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD9481C51DF80E8D00AB75F3 /* JSCategoryDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSCategoryDemoUITests.m; sourceTree = "<group>"; };
-		FD9481C71DF80E8D00AB75F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,20 +74,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD6267091DF9514500536BC2 /* libz.tbd in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FD9481B31DF80E8D00AB75F3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FD9481BE1DF80E8D00AB75F3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +214,6 @@
 			children = (
 				FD9481D31DF80EBE00AB75F3 /* JSCategory */,
 				FD94819F1DF80E8D00AB75F3 /* JSCategoryDemo */,
-				FD9481B91DF80E8D00AB75F3 /* JSCategoryDemoTests */,
-				FD9481C41DF80E8D00AB75F3 /* JSCategoryDemoUITests */,
 				FD94819E1DF80E8D00AB75F3 /* Products */,
 				FD6266F91DF9510500536BC2 /* Frameworks */,
 			);
@@ -270,8 +223,6 @@
 			isa = PBXGroup;
 			children = (
 				FD94819D1DF80E8D00AB75F3 /* JSCategoryDemo.app */,
-				FD9481B61DF80E8D00AB75F3 /* JSCategoryDemoTests.xctest */,
-				FD9481C11DF80E8D00AB75F3 /* JSCategoryDemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -279,9 +230,6 @@
 		FD94819F1DF80E8D00AB75F3 /* JSCategoryDemo */ = {
 			isa = PBXGroup;
 			children = (
-				FD11E99C1E0A3C1A00810022 /* 1.gif */,
-				FD11E99D1E0A3C1A00810022 /* 2.gif */,
-				FD11E99E1E0A3C1A00810022 /* 3.gif */,
 				FD9481A31DF80E8D00AB75F3 /* AppDelegate.h */,
 				FD9481A41DF80E8D00AB75F3 /* AppDelegate.m */,
 				FD9481A61DF80E8D00AB75F3 /* ViewController.h */,
@@ -301,24 +249,6 @@
 				FD9481A11DF80E8D00AB75F3 /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		FD9481B91DF80E8D00AB75F3 /* JSCategoryDemoTests */ = {
-			isa = PBXGroup;
-			children = (
-				FD9481BA1DF80E8D00AB75F3 /* JSCategoryDemoTests.m */,
-				FD9481BC1DF80E8D00AB75F3 /* Info.plist */,
-			);
-			path = JSCategoryDemoTests;
-			sourceTree = "<group>";
-		};
-		FD9481C41DF80E8D00AB75F3 /* JSCategoryDemoUITests */ = {
-			isa = PBXGroup;
-			children = (
-				FD9481C51DF80E8D00AB75F3 /* JSCategoryDemoUITests.m */,
-				FD9481C71DF80E8D00AB75F3 /* Info.plist */,
-			);
-			path = JSCategoryDemoUITests;
 			sourceTree = "<group>";
 		};
 		FD9481D31DF80EBE00AB75F3 /* JSCategory */ = {
@@ -351,42 +281,6 @@
 			productReference = FD94819D1DF80E8D00AB75F3 /* JSCategoryDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FD9481B51DF80E8D00AB75F3 /* JSCategoryDemoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FD9481CD1DF80E8D00AB75F3 /* Build configuration list for PBXNativeTarget "JSCategoryDemoTests" */;
-			buildPhases = (
-				FD9481B21DF80E8D00AB75F3 /* Sources */,
-				FD9481B31DF80E8D00AB75F3 /* Frameworks */,
-				FD9481B41DF80E8D00AB75F3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FD9481B81DF80E8D00AB75F3 /* PBXTargetDependency */,
-			);
-			name = JSCategoryDemoTests;
-			productName = JSCategoryDemoTests;
-			productReference = FD9481B61DF80E8D00AB75F3 /* JSCategoryDemoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		FD9481C01DF80E8D00AB75F3 /* JSCategoryDemoUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FD9481D01DF80E8D00AB75F3 /* Build configuration list for PBXNativeTarget "JSCategoryDemoUITests" */;
-			buildPhases = (
-				FD9481BD1DF80E8D00AB75F3 /* Sources */,
-				FD9481BE1DF80E8D00AB75F3 /* Frameworks */,
-				FD9481BF1DF80E8D00AB75F3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FD9481C31DF80E8D00AB75F3 /* PBXTargetDependency */,
-			);
-			name = JSCategoryDemoUITests;
-			productName = JSCategoryDemoUITests;
-			productReference = FD9481C11DF80E8D00AB75F3 /* JSCategoryDemoUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -398,18 +292,7 @@
 				TargetAttributes = {
 					FD94819C1DF80E8D00AB75F3 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = X5733X6NCT;
-						ProvisioningStyle = Automatic;
-					};
-					FD9481B51DF80E8D00AB75F3 = {
-						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Automatic;
-						TestTargetID = FD94819C1DF80E8D00AB75F3;
-					};
-					FD9481C01DF80E8D00AB75F3 = {
-						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Automatic;
-						TestTargetID = FD94819C1DF80E8D00AB75F3;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -427,8 +310,6 @@
 			projectRoot = "";
 			targets = (
 				FD94819C1DF80E8D00AB75F3 /* JSCategoryDemo */,
-				FD9481B51DF80E8D00AB75F3 /* JSCategoryDemoTests */,
-				FD9481C01DF80E8D00AB75F3 /* JSCategoryDemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -438,26 +319,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD11E9A11E0A3C1A00810022 /* 3.gif in Resources */,
 				FD9481B01DF80E8D00AB75F3 /* LaunchScreen.storyboard in Resources */,
-				FD11E9A01E0A3C1A00810022 /* 2.gif in Resources */,
 				FD9481AD1DF80E8D00AB75F3 /* Assets.xcassets in Resources */,
-				FD11E99F1E0A3C1A00810022 /* 1.gif in Resources */,
 				FD9481AB1DF80E8D00AB75F3 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FD9481B41DF80E8D00AB75F3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FD9481BF1DF80E8D00AB75F3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,36 +348,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FD9481B21DF80E8D00AB75F3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FD9481BB1DF80E8D00AB75F3 /* JSCategoryDemoTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FD9481BD1DF80E8D00AB75F3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FD9481C61DF80E8D00AB75F3 /* JSCategoryDemoUITests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		FD9481B81DF80E8D00AB75F3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FD94819C1DF80E8D00AB75F3 /* JSCategoryDemo */;
-			targetProxy = FD9481B71DF80E8D00AB75F3 /* PBXContainerItemProxy */;
-		};
-		FD9481C31DF80E8D00AB75F3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FD94819C1DF80E8D00AB75F3 /* JSCategoryDemo */;
-			targetProxy = FD9481C21DF80E8D00AB75F3 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FD9481A91DF80E8D00AB75F3 /* Main.storyboard */ = {
@@ -631,7 +466,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = X5733X6NCT;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = JSCategoryDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -645,59 +480,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = X5733X6NCT;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = JSCategoryDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Spirit.JSCategoryDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
-		FD9481CE1DF80E8D00AB75F3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = JSCategoryDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Spirit.JSCategoryDemoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JSCategoryDemo.app/JSCategoryDemo";
-			};
-			name = Debug;
-		};
-		FD9481CF1DF80E8D00AB75F3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = JSCategoryDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Spirit.JSCategoryDemoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JSCategoryDemo.app/JSCategoryDemo";
-			};
-			name = Release;
-		};
-		FD9481D11DF80E8D00AB75F3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = JSCategoryDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Spirit.JSCategoryDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = JSCategoryDemo;
-			};
-			name = Debug;
-		};
-		FD9481D21DF80E8D00AB75F3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = JSCategoryDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Spirit.JSCategoryDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = JSCategoryDemo;
 			};
 			name = Release;
 		};
@@ -718,24 +507,6 @@
 			buildConfigurations = (
 				FD9481CB1DF80E8D00AB75F3 /* Debug */,
 				FD9481CC1DF80E8D00AB75F3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FD9481CD1DF80E8D00AB75F3 /* Build configuration list for PBXNativeTarget "JSCategoryDemoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FD9481CE1DF80E8D00AB75F3 /* Debug */,
-				FD9481CF1DF80E8D00AB75F3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FD9481D01DF80E8D00AB75F3 /* Build configuration list for PBXNativeTarget "JSCategoryDemoUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FD9481D11DF80E8D00AB75F3 /* Debug */,
-				FD9481D21DF80E8D00AB75F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
