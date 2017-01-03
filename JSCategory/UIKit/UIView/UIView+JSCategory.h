@@ -15,12 +15,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  全屏幕抓拍
  */
-- (UIImage *)js_snapshotImage;
+- (nullable UIImage *)js_snapshotImage;
 
 /**
  全屏幕抓拍 - PDF
  */
-- (NSData *)js_snapshotPDF;
+- (nullable NSData *)js_snapshotPDF;
 
 /**
  设置图层阴影
@@ -29,14 +29,14 @@ NS_ASSUME_NONNULL_BEGIN
  @param offset 阴影偏移量
  @param radius 阴影半径
  */
-- (void)js_setLayerShadow:(UIColor*)color
+- (void)js_setLayerShadow:(nullable UIColor*)color
                    offset:(CGSize)offset
                    radius:(CGFloat)radius;
 
 /**
  移除所有的子视图
  
- @warning 禁止在你的view's的 "drawRect:" 方法中调用该函数
+ @warning 禁止在你的 view's 的 "drawRect:" 方法中调用该函数
  */
 - (void)js_removeAllSubviews;
 

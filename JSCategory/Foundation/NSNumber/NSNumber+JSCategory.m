@@ -12,12 +12,10 @@
 
 @implementation NSNumber (JSCategory)
 #pragma mark NSNumber
-+ (NSNumber *)js_numberWithString:(NSString *)string
-{
++ (NSNumber *)js_numberWithString:(NSString *)string {
     NSString *str = [[string js_stringByTrim] lowercaseString];
     
-    if (!str || !str.length)
-    {
+    if (!str || !str.length) {
         return nil;
     }
     
@@ -37,10 +35,8 @@
     
     NSNumber *num = dic[str];
     
-    if (num)
-    {
-        if (num == (id)[NSNull null])
-        {
+    if (num) {
+        if (num == (id)[NSNull null]) {
             return nil;
         }
         
@@ -50,29 +46,24 @@
     // hex number
     int sign = 0;
     
-    if ([str hasPrefix:@"0x"])
-    {
+    if ([str hasPrefix:@"0x"]) {
         sign = 1;
     }
-    else if ([str hasPrefix:@"-0x"])
-    {
+    else if ([str hasPrefix:@"-0x"]) {
         sign = -1;
     }
     
-    if (sign != 0)
-    {
+    if (sign != 0) {
         NSScanner *scan = [NSScanner scannerWithString:str];
         
         unsigned num = -1;
         
         BOOL suc = [scan scanHexInt:&num];
         
-        if (suc)
-        {
+        if (suc) {
             return [NSNumber numberWithLong:((long)num * sign)];
         }
-        else
-        {
+        else {
             return nil;
         }
     }
@@ -83,4 +74,5 @@
     
     return [formatter numberFromString:string];
 }
+
 @end

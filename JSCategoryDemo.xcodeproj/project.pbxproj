@@ -20,10 +20,18 @@
 		FD6266F61DF94FA700536BC2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9481A41DF80E8D00AB75F3 /* AppDelegate.m */; };
 		FD6266F71DF94FAB00536BC2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9481A71DF80E8D00AB75F3 /* ViewController.m */; };
 		FD6266F81DF94FAF00536BC2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9481A11DF80E8D00AB75F3 /* main.m */; };
-		FD6267091DF9514500536BC2 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FD6267081DF9514500536BC2 /* libz.tbd */; };
+		FD6B16E71E1C2EB900252E35 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FD6267081DF9514500536BC2 /* libz.tbd */; };
+		FD6B16E81E1C2F2200252E35 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD6266FA1DF9510500536BC2 /* CoreGraphics.framework */; };
+		FD6B16E91E1C2F2D00252E35 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD6266FC1DF9510E00536BC2 /* QuartzCore.framework */; };
+		FD6B16EA1E1C2F3600252E35 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD6266FE1DF9511700536BC2 /* Accelerate.framework */; };
+		FD6B16EB1E1C2F3F00252E35 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD6267001DF9511F00536BC2 /* ImageIO.framework */; };
+		FD6B16EC1E1C2F4800252E35 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD6267021DF9512900536BC2 /* CoreText.framework */; };
+		FD6B16ED1E1C2F5000252E35 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD6267041DF9513200536BC2 /* CoreFoundation.framework */; };
+		FD6B16EE1E1C2F6500252E35 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD6267061DF9513A00536BC2 /* UIKit.framework */; };
 		FD9481AB1DF80E8D00AB75F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD9481A91DF80E8D00AB75F3 /* Main.storyboard */; };
 		FD9481AD1DF80E8D00AB75F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD9481AC1DF80E8D00AB75F3 /* Assets.xcassets */; };
 		FD9481B01DF80E8D00AB75F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD9481AE1DF80E8D00AB75F3 /* LaunchScreen.storyboard */; };
+		FDAB87741E1C5EAF00ABE362 /* NSArray+JSCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAB87731E1C5EAF00ABE362 /* NSArray+JSCategory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +74,8 @@
 		FD9481AC1DF80E8D00AB75F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD9481AF1DF80E8D00AB75F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD9481B11DF80E8D00AB75F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDAB87721E1C5EAF00ABE362 /* NSArray+JSCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+JSCategory.h"; sourceTree = "<group>"; };
+		FDAB87731E1C5EAF00ABE362 /* NSArray+JSCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+JSCategory.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +83,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD6267091DF9514500536BC2 /* libz.tbd in Frameworks */,
+				FD6B16EE1E1C2F6500252E35 /* UIKit.framework in Frameworks */,
+				FD6B16ED1E1C2F5000252E35 /* CoreFoundation.framework in Frameworks */,
+				FD6B16EC1E1C2F4800252E35 /* CoreText.framework in Frameworks */,
+				FD6B16EB1E1C2F3F00252E35 /* ImageIO.framework in Frameworks */,
+				FD6B16EA1E1C2F3600252E35 /* Accelerate.framework in Frameworks */,
+				FD6B16E91E1C2F2D00252E35 /* QuartzCore.framework in Frameworks */,
+				FD6B16E81E1C2F2200252E35 /* CoreGraphics.framework in Frameworks */,
+				FD6B16E71E1C2EB900252E35 /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +118,7 @@
 		FD2976CC1E00E26B00669376 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				FDAB87711E1C5E5000ABE362 /* NSArray */,
 				FD2976CD1E00E26B00669376 /* NSData */,
 				FD2976D01E00E26B00669376 /* NSDate */,
 				FD2976D31E00E26B00669376 /* NSNumber */,
@@ -261,6 +279,15 @@
 			path = JSCategory;
 			sourceTree = "<group>";
 		};
+		FDAB87711E1C5E5000ABE362 /* NSArray */ = {
+			isa = PBXGroup;
+			children = (
+				FDAB87721E1C5EAF00ABE362 /* NSArray+JSCategory.h */,
+				FDAB87731E1C5EAF00ABE362 /* NSArray+JSCategory.m */,
+			);
+			path = NSArray;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -345,6 +372,7 @@
 				FD6266F61DF94FA700536BC2 /* AppDelegate.m in Sources */,
 				FD2976ED1E01195000669376 /* UIButton+JSCategory.m in Sources */,
 				FD2976DB1E00E26B00669376 /* NSData+JSCategory.m in Sources */,
+				FDAB87741E1C5EAF00ABE362 /* NSArray+JSCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,8 +10,7 @@
 
 @implementation UIView (JSCategory)
 #pragma mark 组件方法
-- (UIImage *)js_snapshotImage
-{
+- (UIImage *)js_snapshotImage {
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0);
     
     [self.layer renderInContext:UIGraphicsGetCurrentContext()];
@@ -23,8 +22,7 @@
     return snap;
 }
 
-- (NSData *)js_snapshotPDF
-{
+- (NSData *)js_snapshotPDF {
     CGRect bounds = self.bounds;
     
     NSMutableData* data = [NSMutableData data];
@@ -35,8 +33,7 @@
     
     CGDataConsumerRelease(consumer);
     
-    if (!context)
-    {
+    if (!context) {
         return nil;
     }
     
@@ -59,8 +56,7 @@
 
 - (void)js_setLayerShadow:(UIColor*)color
                    offset:(CGSize)offset
-                   radius:(CGFloat)radius
-{
+                   radius:(CGFloat)radius {
     self.layer.shadowColor = color.CGColor;
     
     self.layer.shadowOffset = offset;
@@ -74,23 +70,18 @@
     self.layer.rasterizationScale = [UIScreen mainScreen].scale;
 }
 
-- (void)js_removeAllSubviews
-{
-    while (self.subviews.count)
-    {
+- (void)js_removeAllSubviews {
+    while (self.subviews.count) {
         [self.subviews.lastObject removeFromSuperview];
     }
 }
 
 #pragma mark 组件属性
-- (UIViewController *)js_viewController
-{
-    for (UIView *view = self; view; view = view.superview)
-    {
+- (UIViewController *)js_viewController {
+    for (UIView *view = self; view; view = view.superview) {
         UIResponder *nextResponder = [view nextResponder];
         
-        if ([nextResponder isKindOfClass:[UIViewController class]])
-        {
+        if ([nextResponder isKindOfClass:[UIViewController class]]) {
             return (UIViewController *)nextResponder;
         }
     }
@@ -98,13 +89,11 @@
     return nil;
 }
 
-- (CGFloat)js_left
-{
+- (CGFloat)js_left {
     return self.frame.origin.x;
 }
 
-- (void)setJs_left:(CGFloat)x
-{
+- (void)setJs_left:(CGFloat)x {
     CGRect frame = self.frame;
     
     frame.origin.x = x;
@@ -112,13 +101,11 @@
     self.frame = frame;
 }
 
-- (CGFloat)js_top
-{
+- (CGFloat)js_top {
     return self.frame.origin.y;
 }
 
-- (void)setJs_top:(CGFloat)y
-{
+- (void)setJs_top:(CGFloat)y {
     CGRect frame = self.frame;
     
     frame.origin.y = y;
@@ -126,13 +113,11 @@
     self.frame = frame;
 }
 
-- (CGFloat)js_right
-{
+- (CGFloat)js_right {
     return self.frame.origin.x + self.frame.size.width;
 }
 
-- (void)setJs_right:(CGFloat)right
-{
+- (void)setJs_right:(CGFloat)right {
     CGRect frame = self.frame;
     
     frame.origin.x = right - frame.size.width;
@@ -140,13 +125,11 @@
     self.frame = frame;
 }
 
-- (CGFloat)js_bottom
-{
+- (CGFloat)js_bottom {
     return self.frame.origin.y + self.frame.size.height;
 }
 
-- (void)setJs_bottom:(CGFloat)bottom
-{
+- (void)setJs_bottom:(CGFloat)bottom {
     CGRect frame = self.frame;
     
     frame.origin.y = bottom - frame.size.height;
@@ -154,13 +137,11 @@
     self.frame = frame;
 }
 
-- (CGFloat)js_width
-{
+- (CGFloat)js_width {
     return self.frame.size.width;
 }
 
-- (void)setJs_width:(CGFloat)width
-{
+- (void)setJs_width:(CGFloat)width {
     CGRect frame = self.frame;
     
     frame.size.width = width;
@@ -168,13 +149,11 @@
     self.frame = frame;
 }
 
-- (CGFloat)js_height
-{
+- (CGFloat)js_height {
     return self.frame.size.height;
 }
 
-- (void)setJs_height:(CGFloat)height
-{
+- (void)setJs_height:(CGFloat)height {
     CGRect frame = self.frame;
     
     frame.size.height = height;
@@ -182,33 +161,27 @@
     self.frame = frame;
 }
 
-- (CGFloat)js_centerX
-{
+- (CGFloat)js_centerX {
     return self.center.x;
 }
 
-- (void)setJs_centerX:(CGFloat)centerX
-{
+- (void)setJs_centerX:(CGFloat)centerX {
     self.center = CGPointMake(centerX, self.center.y);
 }
 
-- (CGFloat)js_centerY
-{
+- (CGFloat)js_centerY {
     return self.center.y;
 }
 
-- (void)setJs_centerY:(CGFloat)centerY
-{
+- (void)setJs_centerY:(CGFloat)centerY {
     self.center = CGPointMake(self.center.x, centerY);
 }
 
-- (CGPoint)js_origin
-{
+- (CGPoint)js_origin {
     return self.frame.origin;
 }
 
-- (void)setJs_origin:(CGPoint)origin
-{
+- (void)setJs_origin:(CGPoint)origin {
     CGRect frame = self.frame;
     
     frame.origin = origin;
@@ -216,13 +189,11 @@
     self.frame = frame;
 }
 
-- (CGSize)js_size
-{
+- (CGSize)js_size {
     return self.frame.size;
 }
 
-- (void)setJs_size:(CGSize)size
-{
+- (void)setJs_size:(CGSize)size {
     CGRect frame = self.frame;
     
     frame.size = size;

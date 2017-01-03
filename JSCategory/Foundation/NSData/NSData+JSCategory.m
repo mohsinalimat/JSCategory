@@ -88,8 +88,7 @@
     NSMutableString *hash = [NSMutableString
                              stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];
     
-    for (int i = 0; i < CC_SHA1_DIGEST_LENGTH; i++)
-    {
+    for (int i = 0; i < CC_SHA1_DIGEST_LENGTH; i++) {
         [hash appendFormat:@"%02x", result[i]];
     }
     
@@ -119,8 +118,7 @@
     return hash;
 }
 
-- (NSData *)js_sha224Data
-{
+- (NSData *)js_sha224Data {
     unsigned char result[CC_SHA224_DIGEST_LENGTH];
     
     CC_SHA224(self.bytes, (CC_LONG)self.length, result);
@@ -128,8 +126,7 @@
     return [NSData dataWithBytes:result length:CC_SHA224_DIGEST_LENGTH];
 }
 
-- (NSString *)js_sha256String
-{
+- (NSString *)js_sha256String {
     unsigned char result[CC_SHA256_DIGEST_LENGTH];
     
     CC_SHA256(self.bytes, (CC_LONG)self.length, result);
@@ -137,16 +134,14 @@
     NSMutableString *hash = [NSMutableString
                              stringWithCapacity:CC_SHA256_DIGEST_LENGTH * 2];
     
-    for (int i = 0; i < CC_SHA256_DIGEST_LENGTH; i++)
-    {
+    for (int i = 0; i < CC_SHA256_DIGEST_LENGTH; i++) {
         [hash appendFormat:@"%02x", result[i]];
     }
     
     return hash;
 }
 
-- (NSData *)js_sha256Data
-{
+- (NSData *)js_sha256Data {
     unsigned char result[CC_SHA256_DIGEST_LENGTH];
     
     CC_SHA256(self.bytes, (CC_LONG)self.length, result);
@@ -154,8 +149,7 @@
     return [NSData dataWithBytes:result length:CC_SHA256_DIGEST_LENGTH];
 }
 
-- (NSString *)js_sha384String
-{
+- (NSString *)js_sha384String {
     unsigned char result[CC_SHA384_DIGEST_LENGTH];
     
     CC_SHA384(self.bytes, (CC_LONG)self.length, result);
@@ -163,16 +157,14 @@
     NSMutableString *hash = [NSMutableString
                              stringWithCapacity:CC_SHA384_DIGEST_LENGTH * 2];
     
-    for (int i = 0; i < CC_SHA384_DIGEST_LENGTH; i++)
-    {
+    for (int i = 0; i < CC_SHA384_DIGEST_LENGTH; i++) {
         [hash appendFormat:@"%02x", result[i]];
     }
     
     return hash;
 }
 
-- (NSData *)js_sha384Data
-{
+- (NSData *)js_sha384Data {
     unsigned char result[CC_SHA384_DIGEST_LENGTH];
     
     CC_SHA384(self.bytes, (CC_LONG)self.length, result);
@@ -180,8 +172,7 @@
     return [NSData dataWithBytes:result length:CC_SHA384_DIGEST_LENGTH];
 }
 
-- (NSString *)js_sha512String
-{
+- (NSString *)js_sha512String {
     unsigned char result[CC_SHA512_DIGEST_LENGTH];
     
     CC_SHA512(self.bytes, (CC_LONG)self.length, result);
@@ -189,16 +180,14 @@
     NSMutableString *hash = [NSMutableString
                              stringWithCapacity:CC_SHA512_DIGEST_LENGTH * 2];
     
-    for (int i = 0; i < CC_SHA512_DIGEST_LENGTH; i++)
-    {
+    for (int i = 0; i < CC_SHA512_DIGEST_LENGTH; i++) {
         [hash appendFormat:@"%02x", result[i]];
     }
     
     return hash;
 }
 
-- (NSData *)js_sha512Data
-{
+- (NSData *)js_sha512Data {
     unsigned char result[CC_SHA512_DIGEST_LENGTH];
     
     CC_SHA512(self.bytes, (CC_LONG)self.length, result);
@@ -206,20 +195,17 @@
     return [NSData dataWithBytes:result length:CC_SHA512_DIGEST_LENGTH];
 }
 
-- (NSString *)js_hmacMD5StringWithKey:(NSString *)key
-{
+- (NSString *)js_hmacMD5StringWithKey:(NSString *)key {
     return [self js_hmacStringUsingAlg:kCCHmacAlgMD5
                                withKey:key];
 }
 
-- (NSData *)js_hmacMD5DataWithKey:(NSData *)key
-{
+- (NSData *)js_hmacMD5DataWithKey:(NSData *)key {
     return [self js_hmacDataUsingAlg:kCCHmacAlgMD5
                              withKey:key];
 }
 
-- (NSString *)js_hmacSHA1StringWithKey:(NSString *)key
-{
+- (NSString *)js_hmacSHA1StringWithKey:(NSString *)key {
     return [self js_hmacStringUsingAlg:kCCHmacAlgSHA1
                                withKey:key];
 }
@@ -230,93 +216,76 @@
                              withKey:key];
 }
 
-- (NSString *)js_hmacSHA224StringWithKey:(NSString *)key
-{
+- (NSString *)js_hmacSHA224StringWithKey:(NSString *)key {
     return [self js_hmacStringUsingAlg:kCCHmacAlgSHA224
                                withKey:key];
 }
 
-- (NSData *)js_hmacSHA224DataWithKey:(NSData *)key
-{
+- (NSData *)js_hmacSHA224DataWithKey:(NSData *)key {
     return [self js_hmacDataUsingAlg:kCCHmacAlgSHA224
                              withKey:key];
 }
 
-- (NSString *)js_hmacSHA256StringWithKey:(NSString *)key
-{
+- (NSString *)js_hmacSHA256StringWithKey:(NSString *)key {
     return [self js_hmacStringUsingAlg:kCCHmacAlgSHA256
                                withKey:key];
 }
 
-- (NSData *)js_hmacSHA256DataWithKey:(NSData *)key
-{
+- (NSData *)js_hmacSHA256DataWithKey:(NSData *)key {
     return [self js_hmacDataUsingAlg:kCCHmacAlgSHA256
                              withKey:key];
 }
 
-- (NSString *)js_hmacSHA384StringWithKey:(NSString *)key
-{
+- (NSString *)js_hmacSHA384StringWithKey:(NSString *)key {
     return [self js_hmacStringUsingAlg:kCCHmacAlgSHA384
                                withKey:key];
 }
 
-- (NSData *)js_hmacSHA384DataWithKey:(NSData *)key
-{
+- (NSData *)js_hmacSHA384DataWithKey:(NSData *)key {
     return [self js_hmacDataUsingAlg:kCCHmacAlgSHA384
                              withKey:key];
 }
 
-- (NSString *)js_hmacSHA512StringWithKey:(NSString *)key
-{
+- (NSString *)js_hmacSHA512StringWithKey:(NSString *)key {
     return [self js_hmacStringUsingAlg:kCCHmacAlgSHA512
                                withKey:key];
 }
 
-- (NSData *)js_hmacSHA512DataWithKey:(NSData *)key
-{
+- (NSData *)js_hmacSHA512DataWithKey:(NSData *)key {
     return [self js_hmacDataUsingAlg:kCCHmacAlgSHA512
                              withKey:key];
 }
 
 - (NSString *)js_hmacStringUsingAlg:(CCHmacAlgorithm)alg
-                            withKey:(NSString *)key
-{
+                            withKey:(NSString *)key {
     size_t size;
     
-    switch (alg)
-    {
-        case kCCHmacAlgMD5:
-        {
+    switch (alg) {
+        case kCCHmacAlgMD5: {
             size = CC_MD5_DIGEST_LENGTH;
         }
             break;
-        case kCCHmacAlgSHA1:
-        {
+        case kCCHmacAlgSHA1: {
             size = CC_SHA1_DIGEST_LENGTH;
         }
             break;
-        case kCCHmacAlgSHA224:
-        {
+        case kCCHmacAlgSHA224: {
             size = CC_SHA224_DIGEST_LENGTH;
         }
             break;
-        case kCCHmacAlgSHA256:
-        {
+        case kCCHmacAlgSHA256: {
             size = CC_SHA256_DIGEST_LENGTH;
         }
             break;
-        case kCCHmacAlgSHA384:
-        {
+        case kCCHmacAlgSHA384: {
             size = CC_SHA384_DIGEST_LENGTH;
         }
             break;
-        case kCCHmacAlgSHA512:
-        {
+        case kCCHmacAlgSHA512: {
             size = CC_SHA512_DIGEST_LENGTH;
         }
             break;
-        default:
-        {
+        default: {
             return nil;
         }
             break;
@@ -329,8 +298,7 @@
     
     NSMutableString *hash = [NSMutableString stringWithCapacity:size * 2];
     
-    for (int i = 0; i < size; i++)
-    {
+    for (int i = 0; i < size; i++) {
         [hash appendFormat:@"%02x", result[i]];
     }
     
@@ -338,44 +306,35 @@
 }
 
 - (NSData *)js_hmacDataUsingAlg:(CCHmacAlgorithm)alg
-                        withKey:(NSData *)key
-{
+                        withKey:(NSData *)key {
     size_t size;
     
-    switch (alg)
-    {
-        case kCCHmacAlgMD5:
-        {
+    switch (alg) {
+        case kCCHmacAlgMD5: {
             size = CC_MD5_DIGEST_LENGTH;
         }
             break;
-        case kCCHmacAlgSHA1:
-        {
+        case kCCHmacAlgSHA1: {
             size = CC_SHA1_DIGEST_LENGTH;
         }
             break;
-        case kCCHmacAlgSHA224:
-        {
+        case kCCHmacAlgSHA224: {
             size = CC_SHA224_DIGEST_LENGTH;
         }
             break;
-        case kCCHmacAlgSHA256:
-        {
+        case kCCHmacAlgSHA256: {
             size = CC_SHA256_DIGEST_LENGTH;
         }
             break;
-        case kCCHmacAlgSHA384:
-        {
+        case kCCHmacAlgSHA384: {
             size = CC_SHA384_DIGEST_LENGTH;
         }
             break;
-        case kCCHmacAlgSHA512:
-        {
+        case kCCHmacAlgSHA512: {
             size = CC_SHA512_DIGEST_LENGTH;
         }
             break;
-        default:
-        {
+        default: {
             return nil;
         }
             break;
@@ -387,15 +346,13 @@
     return [NSData dataWithBytes:result length:size];
 }
 
-- (NSString *)js_crc32String
-{
+- (NSString *)js_crc32String {
     uLong result = crc32(0, self.bytes, (uInt)self.length);
     
     return [NSString stringWithFormat:@"%08x", (uint32_t)result];
 }
 
-- (uint32_t)js_crc32
-{
+- (uint32_t)js_crc32 {
     uLong result = crc32(0, self.bytes, (uInt)self.length);
     
     return (uint32_t)result;
@@ -403,15 +360,12 @@
 
 #pragma mark 加密与解密
 - (NSData *)js_aes256EncryptWithKey:(NSData *)key
-                                 iv:(NSData *)iv
-{
-    if (key.length != 16 && key.length != 24 && key.length != 32)
-    {
+                                 iv:(NSData *)iv {
+    if (key.length != 16 && key.length != 24 && key.length != 32) {
         return nil;
     }
     
-    if (iv.length != 16 && iv.length != 0)
-    {
+    if (iv.length != 16 && iv.length != 0) {
         return nil;
     }
     
@@ -421,8 +375,7 @@
     
     void *buffer = malloc(bufferSize);
     
-    if (!buffer)
-    {
+    if (!buffer) {
         return nil;
     }
     
@@ -440,8 +393,7 @@
                                           bufferSize,
                                           &encryptedSize);
     
-    if (cryptStatus == kCCSuccess)
-    {
+    if (cryptStatus == kCCSuccess) {
         result = [[NSData alloc]initWithBytes:buffer
                                        length:encryptedSize];
         
@@ -449,8 +401,7 @@
         
         return result;
     }
-    else
-    {
+    else {
         free(buffer);
         
         return nil;
@@ -458,15 +409,12 @@
 }
 
 - (NSData *)js_aes256DecryptWithkey:(NSData *)key
-                                 iv:(NSData *)iv
-{
-    if (key.length != 16 && key.length != 24 && key.length != 32)
-    {
+                                 iv:(NSData *)iv {
+    if (key.length != 16 && key.length != 24 && key.length != 32) {
         return nil;
     }
     
-    if (iv.length != 16 && iv.length != 0)
-    {
+    if (iv.length != 16 && iv.length != 0) {
         return nil;
     }
     
@@ -476,8 +424,7 @@
     
     void *buffer = malloc(bufferSize);
     
-    if (!buffer)
-    {
+    if (!buffer) {
         return nil;
     }
     
@@ -494,8 +441,7 @@
                                           buffer,
                                           bufferSize,
                                           &encryptedSize);
-    if (cryptStatus == kCCSuccess)
-    {
+    if (cryptStatus == kCCSuccess) {
         result = [[NSData alloc]initWithBytes:buffer
                                        length:encryptedSize];
         
@@ -503,8 +449,7 @@
         
         return result;
     }
-    else
-    {
+    else {
         free(buffer);
         
         return nil;
@@ -512,10 +457,8 @@
 }
 
 #pragma mark 编码与解码
-- (NSString *)js_utf8String
-{
-    if (self.length > 0)
-    {
+- (NSString *)js_utf8String {
+    if (self.length > 0) {
         return [[NSString alloc] initWithData:self
                                      encoding:NSUTF8StringEncoding];
     }
@@ -523,24 +466,21 @@
     return @"";
 }
 
-- (NSString *)js_hexString
-{
+- (NSString *)js_hexString {
     NSUInteger length = self.length;
     
     NSMutableString *result = [NSMutableString stringWithCapacity:length * 2];
     
     const unsigned char *byte = self.bytes;
     
-    for (int i = 0; i < length; i++, byte++)
-    {
+    for (int i = 0; i < length; i++, byte++) {
         [result appendFormat:@"%02X", *byte];
     }
     
     return result;
 }
 
-+ (NSData *)js_dataWithHexString:(NSString *)hexString
-{
++ (NSData *)js_dataWithHexString:(NSString *)hexString {
     hexString = [hexString stringByReplacingOccurrencesOfString:@" "
                                                      withString:@""];
     
@@ -548,15 +488,13 @@
     
     NSUInteger len = hexString.length;
     
-    if (!len)
-    {
+    if (!len) {
         return nil;
     }
     
     unichar *buf = malloc(sizeof(unichar) * len);
     
-    if (!buf)
-    {
+    if (!buf) {
         return nil;
     }
     
@@ -571,8 +509,7 @@
     
     int i;
     
-    for (i = 0; i < len / 2; i++)
-    {
+    for (i = 0; i < len / 2; i++) {
         str[0] = buf[i * 2];
         
         str[1] = buf[i * 2 + 1];
@@ -590,8 +527,7 @@
 static const char base64EncodingTable[64]
 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
-static const short base64DecodingTable[256] =
-{
+static const short base64DecodingTable[256] = {
     -2, -2, -2, -2, -2, -2, -2, -2, -2, -1, -1, -2,  -1,  -1, -2, -2,
     -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2,  -2,  -2, -2, -2,
     -1, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, 62,  -2,  -2, -2, 63,
@@ -610,12 +546,10 @@ static const short base64DecodingTable[256] =
     -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2,  -2,  -2, -2, -2
 };
 
-- (NSString *)js_base64EncodedString
-{
+- (NSString *)js_base64EncodedString {
     NSUInteger length = self.length;
     
-    if (length == 0)
-    {
+    if (length == 0) {
         return @"";
     }
     
@@ -623,8 +557,7 @@ static const short base64DecodingTable[256] =
     
     uint8_t *output = malloc(((out_length + 2) / 3) * 4);
     
-    if (output == NULL)
-    {
+    if (output == NULL) {
         return nil;
     }
     
@@ -632,16 +565,13 @@ static const short base64DecodingTable[256] =
     
     NSInteger i, value;
     
-    for (i = 0; i < length; i += 3)
-    {
+    for (i = 0; i < length; i += 3) {
         value = 0;
         
-        for (NSInteger j = i; j < i + 3; j++)
-        {
+        for (NSInteger j = i; j < i + 3; j++) {
             value <<= 8;
             
-            if (j < length)
-            {
+            if (j < length) {
                 value |= (0xFF & input[j]);
             }
         }
@@ -669,14 +599,12 @@ static const short base64DecodingTable[256] =
     return base64;
 }
 
-+ (NSData *)js_dataWithBase64EncodedString:(NSString *)base64EncodedString
-{
++ (NSData *)js_dataWithBase64EncodedString:(NSString *)base64EncodedString {
     NSInteger length = base64EncodedString.length;
     
     const char *string = [base64EncodedString cStringUsingEncoding:NSASCIIStringEncoding];
     
-    if (string  == NULL)
-    {
+    if (string  == NULL) {
         return nil;
     }
     
@@ -687,13 +615,11 @@ static const short base64DecodingTable[256] =
     
     NSMutableData *data = [NSMutableData dataWithLength:outputLength];
     
-    if (data == nil)
-    {
+    if (data == nil) {
         return nil;
     }
     
-    if (length == 0)
-    {
+    if (length == 0) {
         return data;
     }
     
@@ -703,8 +629,7 @@ static const short base64DecodingTable[256] =
     
     NSInteger outputPoint = 0;
     
-    while (inputPoint < length)
-    {
+    while (inputPoint < length) {
         char i0 = string[inputPoint++];
         
         char i1 = string[inputPoint++];
@@ -716,14 +641,12 @@ static const short base64DecodingTable[256] =
         output[outputPoint++] = (base64DecodingTable[i0] << 2)
         | (base64DecodingTable[i1] >> 4);
         
-        if (outputPoint < outputLength)
-        {
+        if (outputPoint < outputLength) {
             output[outputPoint++] = ((base64DecodingTable[i1] & 0xf) << 4)
             | (base64DecodingTable[i2] >> 2);
         }
         
-        if (outputPoint < outputLength)
-        {
+        if (outputPoint < outputLength) {
             output[outputPoint++] = ((base64DecodingTable[i2] & 0x3) << 6)
             | base64DecodingTable[i3];
         }
@@ -732,16 +655,14 @@ static const short base64DecodingTable[256] =
     return data;
 }
 
-- (id)js_jsonValueDecoded
-{
+- (id)js_jsonValueDecoded {
     NSError *error = nil;
     
     id value = [NSJSONSerialization JSONObjectWithData:self
                                                options:kNilOptions
                                                  error:&error];
     
-    if (error)
-    {
+    if (error) {
         NSLog(@"jsonValueDecoded error:%@", error);
     }
     

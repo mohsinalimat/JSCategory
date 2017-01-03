@@ -10,56 +10,46 @@
 
 @implementation UIApplication (JSCategory)
 #pragma mark 组件属性
-- (NSURL *)js_documentsURL
-{
+- (NSURL *)js_documentsURL {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory
                                                    inDomains:NSUserDomainMask] lastObject];
 }
 
-- (NSString *)js_documentsPath
-{
+- (NSString *)js_documentsPath {
     return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
 }
 
-- (NSURL *)js_cachesURL
-{
+- (NSURL *)js_cachesURL {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSCachesDirectory
                                                    inDomains:NSUserDomainMask] lastObject];
 }
 
-- (NSString *)js_cachesPath
-{
+- (NSString *)js_cachesPath {
     return [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
 }
 
-- (NSURL *)js_libraryURL
-{
+- (NSURL *)js_libraryURL {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSLibraryDirectory
                                                    inDomains:NSUserDomainMask] lastObject];
 }
 
-- (NSString *)js_libraryPath
-{
+- (NSString *)js_libraryPath {
     return [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) firstObject];
 }
 
-- (NSString *)js_appBundleName
-{
+- (NSString *)js_appBundleName {
     return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"];
 }
 
-- (NSString *)js_appBundleID
-{
+- (NSString *)js_appBundleID {
     return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"];
 }
 
-- (NSString *)js_appVersion
-{
+- (NSString *)js_appVersion {
     return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
 }
 
-- (NSString *)js_appBuildVersion
-{
+- (NSString *)js_appBuildVersion {
     return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
 }
 

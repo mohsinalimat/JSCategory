@@ -13,8 +13,7 @@
 @implementation UIButton (JSCategory)
 #pragma mark 图片文字布局
 - (void)js_setButtonImageTitleStyle:(JSButtonImageTitleStyle)style
-                            spacing:(CGFloat)spacing
-{
+                            spacing:(CGFloat)spacing {
     CGFloat imageWidth = self.imageView.image.size.width;
     CGFloat imageHeight = self.imageView.image.size.height;
 
@@ -38,38 +37,32 @@
     CGFloat tempHeight = MAX(labelHeight, imageHeight);
     CGFloat changedHeight = labelHeight + imageHeight + spacing - tempHeight;
     
-    switch (style)
-    {
-        case JSButtonImageTitleStyleLeft:
-        {
+    switch (style) {
+        case JSButtonImageTitleStyleLeft: {
             self.imageEdgeInsets = UIEdgeInsetsMake(0, - spacing / 2, 0, spacing / 2);
             self.titleEdgeInsets = UIEdgeInsetsMake(0, spacing / 2, 0, - spacing / 2);
             self.contentEdgeInsets = UIEdgeInsetsMake(0, spacing / 2, 0, spacing / 2);
         }
             break;
-        case JSButtonImageTitleStyleRight:
-        {
+        case JSButtonImageTitleStyleRight: {
             self.imageEdgeInsets = UIEdgeInsetsMake(0, labelWidth + spacing / 2, 0, - (labelWidth + spacing / 2));
             self.titleEdgeInsets = UIEdgeInsetsMake(0, - (imageWidth + spacing / 2), 0, imageWidth + spacing / 2);
             self.contentEdgeInsets = UIEdgeInsetsMake(0, spacing / 2, 0, spacing / 2);
         }
             break;
-        case JSButtonImageTitleStyleTop:
-        {
+        case JSButtonImageTitleStyleTop: {
             self.imageEdgeInsets = UIEdgeInsetsMake(- imageOffsetY, imageOffsetX, imageOffsetY, - imageOffsetX);
             self.titleEdgeInsets = UIEdgeInsetsMake(labelOffsetY, - labelOffsetX, - labelOffsetY, labelOffsetX);
             self.contentEdgeInsets = UIEdgeInsetsMake(imageOffsetY, - changedWidth / 2, changedHeight - imageOffsetY, - changedWidth / 2);
         }
             break;
-        case JSButtonImageTitleStyleBottom:
-        {
+        case JSButtonImageTitleStyleBottom: {
             self.imageEdgeInsets = UIEdgeInsetsMake(imageOffsetY, imageOffsetX, - imageOffsetY, - imageOffsetX);
             self.titleEdgeInsets = UIEdgeInsetsMake(- labelOffsetY, - labelOffsetX, labelOffsetY, labelOffsetX);
             self.contentEdgeInsets = UIEdgeInsetsMake(changedHeight - imageOffsetY, - changedWidth / 2, imageOffsetY, - changedWidth / 2);
         }
             break;
-        default:
-        {
+        default: {
             
         }
             break;

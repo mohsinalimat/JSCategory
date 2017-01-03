@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSData (JSCategory)
 #pragma mark HASH
 /**
@@ -179,8 +181,8 @@
  @param key   秘钥：长度为16、24或32位（128, 192 or 256bits）
  @param iv    初始化向量：长度16位（128bits）
  */
-- (NSData *)js_aes256EncryptWithKey:(NSData *)key
-                                 iv:(NSData *)iv;
+- (nullable NSData *)js_aes256EncryptWithKey:(NSData *)key
+                                          iv:(nullable NSData *)iv;
 
 /**
  获取aes256解密的二进制数据
@@ -188,38 +190,40 @@
  @param key   秘钥：长度为16、24或32位（128, 192 or 256bits）
  @param iv    初始化向量：长度16位（128bits）
  */
-- (NSData *)js_aes256DecryptWithkey:(NSData *)key
-                                 iv:(NSData *)iv;
+- (nullable NSData *)js_aes256DecryptWithkey:(NSData *)key
+                                          iv:(nullable NSData *)iv;
 
 #pragma mark 编码与解码
 /**
  获取UTF8解码的字符串
  */
-- (NSString *)js_utf8String;
+- (nullable NSString *)js_utf8String;
 
 /**
  获取大写的十六进制字符串
  */
-- (NSString *)js_hexString;
+- (nullable NSString *)js_hexString;
 
 /**
  获取十六进制字符串的二进制数据
  */
-+ (NSData *)js_dataWithHexString:(NSString *)hexString;
++ (nullable NSData *)js_dataWithHexString:(NSString *)hexString;
 
 /**
  获取base64编码的字符串
  */
-- (NSString *)js_base64EncodedString;
+- (nullable NSString *)js_base64EncodedString;
 
 /**
  获取base64编码的字符串的二进制数据
  */
-+ (NSData *)js_dataWithBase64EncodedString:(NSString *)base64EncodedString;
++ (nullable NSData *)js_dataWithBase64EncodedString:(NSString *)base64EncodedString;
 
 /**
  获取解码后得到的NSDictionary或NSArray
  */
-- (id)js_jsonValueDecoded;
+- (nullable id)js_jsonValueDecoded;
 
 @end
+
+NS_ASSUME_NONNULL_END

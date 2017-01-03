@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  通过string创建相应的NSNumber
  */
-+ (NSNumber *)js_numberWithString:(NSString *)string;
++ (nullable NSNumber *)js_numberWithString:(NSString *)string;
 
 @end
 

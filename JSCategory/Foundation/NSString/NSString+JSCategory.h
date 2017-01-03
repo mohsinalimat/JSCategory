@@ -15,93 +15,93 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  获取md2 HASH 字符串
  */
-- (NSString *)js_md2String;
+- (nullable NSString *)js_md2String;
 
 /**
  获取md4 HASH 字符串
  */
-- (NSString *)js_md4String;
+- (nullable NSString *)js_md4String;
 
 /**
  获取md5 HASH 字符串
  */
-- (NSString *)js_md5String;
+- (nullable NSString *)js_md5String;
 
 /**
  获取sha1 HASH 字符串
  */
-- (NSString *)js_sha1String;
+- (nullable NSString *)js_sha1String;
 
 /**
  获取sha224 HASH 字符串
  */
-- (NSString *)js_sha224String;
+- (nullable NSString *)js_sha224String;
 
 /**
  获取sha256 HASH 字符串
  */
-- (NSString *)js_sha256String;
+- (nullable NSString *)js_sha256String;
 
 /**
  获取sha384 HASH 字符串
  */
-- (NSString *)js_sha384String;
+- (nullable NSString *)js_sha384String;
 
 /**
  获取sha512 HASH 字符串
  */
-- (NSString *)js_sha512String;
+- (nullable NSString *)js_sha512String;
 
 /**
  将秘钥以md5算法运算，获取相应的hmac字符串
  @param key  hmac秘钥 
  */
-- (NSString *)js_hmacMD5StringWithKey:(NSString *)key;
+- (nullable NSString *)js_hmacMD5StringWithKey:(NSString *)key;
 
 /**
  将秘钥以sha1算法运算，获取相应的hmac字符串
  @param key  hmac秘钥
  */
-- (NSString *)js_hmacSHA1StringWithKey:(NSString *)key;
+- (nullable NSString *)js_hmacSHA1StringWithKey:(NSString *)key;
 
 /**
  将秘钥以sha224算法运算，获取相应的hmac字符串
  @param key  hmac秘钥
  */
-- (NSString *)js_hmacSHA224StringWithKey:(NSString *)key;
+- (nullable NSString *)js_hmacSHA224StringWithKey:(NSString *)key;
 
 /**
  将秘钥以sha256算法运算，获取相应的hmac字符串
  @param key  hmac秘钥
  */
-- (NSString *)js_hmacSHA256StringWithKey:(NSString *)key;
+- (nullable NSString *)js_hmacSHA256StringWithKey:(NSString *)key;
 
 /**
  将秘钥以sha384算法运算，获取相应的hmac字符串
  @param key  hmac秘钥 */
-- (NSString *)js_hmacSHA384StringWithKey:(NSString *)key;
+- (nullable NSString *)js_hmacSHA384StringWithKey:(NSString *)key;
 
 /**
  将秘钥以sha512算法运算，获取相应的hmac字符串
  @param key  hmac秘钥
  */
-- (NSString *)js_hmacSHA512StringWithKey:(NSString *)key;
+- (nullable NSString *)js_hmacSHA512StringWithKey:(NSString *)key;
 
 /**
  获取crc32 HASH 字符串
  */
-- (NSString *)js_crc32String;
+- (nullable NSString *)js_crc32String;
 
 #pragma mark 编码与解码
 /**
  获取base64编码的字符串
  */
-- (NSString *)js_base64EncodedString;
+- (nullable NSString *)js_base64EncodedString;
 
 /**
  获取base64编码字符串解码后的字符串
  */
-+ (NSString *)js_stringWithBase64EncodedString:(NSString *)base64EncodedString;
++ (nullable NSString *)js_stringWithBase64EncodedString:(NSString *)base64EncodedString;
 
 /**
  获取URL经过UTF-8编码得到的字符串

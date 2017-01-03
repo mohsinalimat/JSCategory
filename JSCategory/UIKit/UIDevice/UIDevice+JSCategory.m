@@ -19,8 +19,7 @@
 
 @implementation UIDevice (JSCategory)
 #pragma mark 设备信息
-- (BOOL)js_isPad
-{
+- (BOOL)js_isPad {
     static dispatch_once_t one;
     
     static BOOL pad;
@@ -32,8 +31,7 @@
     return pad;
 }
 
-- (BOOL)js_isSimulator
-{
+- (BOOL)js_isSimulator {
     static dispatch_once_t one;
     
     static BOOL simu;
@@ -46,8 +44,7 @@
 }
 
 #ifdef __IPHONE_OS_VERSION_MIN_REQUIRED
-- (BOOL)js_canMakePhoneCalls
-{
+- (BOOL)js_canMakePhoneCalls {
     __block BOOL can;
     
     static dispatch_once_t onceToken;
@@ -60,8 +57,7 @@
 }
 #endif
 
-- (NSString *)js_machineModel
-{
+- (NSString *)js_machineModel {
     static dispatch_once_t one;
     
     static NSString *model;
@@ -83,8 +79,7 @@
     return model;
 }
 
-- (NSString *)js_machineModelName
-{
+- (NSString *)js_machineModelName {
     static dispatch_once_t one;
     
     static NSString *name;
@@ -92,8 +87,7 @@
     dispatch_once(&one, ^{
         NSString *model = [self js_machineModel];
         
-        if (!model)
-        {
+        if (!model) {
             return;
         }
         
@@ -179,8 +173,7 @@
         
         name = dic[model];
         
-        if (!name)
-        {
+        if (!name) {
             name = model;
         }
     });
@@ -188,15 +181,13 @@
     return name;
 }
 
-- (NSDate *)js_systemUptime
-{
+- (NSDate *)js_systemUptime {
     NSTimeInterval time = [[NSProcessInfo processInfo] systemUptime];
     
     return [[NSDate alloc] initWithTimeIntervalSinceNow:(0 - time)];
 }
 
-+ (double)js_systemVersion
-{
++ (double)js_systemVersion {
     static double version;
     
     static dispatch_once_t onceToken;
@@ -209,20 +200,16 @@
 }
 
 #pragma mark 网络信息
-- (NSString *)js_ipAddressWIFI
-{
+- (NSString *)js_ipAddressWIFI {
     return [self js_ipAddressWithIfaName:@"en0"];
 }
 
-- (NSString *)js_ipAddressCell
-{
+- (NSString *)js_ipAddressCell {
     return [self js_ipAddressWithIfaName:@"pdp_ip0"];
 }
 
-- (NSString *)js_ipAddressWithIfaName:(NSString *)name
-{
-    if (name.length == 0)
-    {
+- (NSString *)js_ipAddressWithIfaName:(NSString *)name {
+    if (name.length == 0) {
         return nil;
     }
     
@@ -230,53 +217,43 @@
     
     struct ifaddrs *addrs = NULL;
     
-    if (getifaddrs(&addrs) == 0)
-    {
+    if (getifaddrs(&addrs) == 0) {
         struct ifaddrs *addr = addrs;
         
-        while (addr)
-        {
-            if ([[NSString stringWithUTF8String:addr->ifa_name] isEqualToString:name])
-            {
+        while (addr) {
+            if ([[NSString stringWithUTF8String:addr->ifa_name] isEqualToString:name]) {
                 sa_family_t family = addr->ifa_addr->sa_family;
                 
-                switch (family)
-                {
+                switch (family) {
                         // IPv4
-                    case AF_INET:
-                    {
+                    case AF_INET: {
                         char str[INET_ADDRSTRLEN] = {0};
                         
                         inet_ntop(family, &(((struct sockaddr_in *)addr->ifa_addr)->sin_addr), str, sizeof(str));
                         
-                        if (strlen(str) > 0)
-                        {
+                        if (strlen(str) > 0) {
                             address = [NSString stringWithUTF8String:str];
                         }
                     }
                         break;
                         // IPv6
-                    case AF_INET6:
-                    {
+                    case AF_INET6: {
                         char str[INET6_ADDRSTRLEN] = {0};
                         
                         inet_ntop(family, &(((struct sockaddr_in6 *)addr->ifa_addr)->sin6_addr), str, sizeof(str));
                         
-                        if (strlen(str) > 0)
-                        {
+                        if (strlen(str) > 0) {
                             address = [NSString stringWithUTF8String:str];
                         }
                     }
                         break;
-                    default:
-                    {
+                    default: {
                         
                     }
                         break;
                 }
                 
-                if (address)
-                {
+                if (address) {
                     break;
                 }
             }
@@ -290,8 +267,7 @@
     return address;
 }
 
-typedef struct
-{
+typedef struct {
     uint64_t en_in;
     uint64_t en_out;
     uint64_t pdp_ip_in;
@@ -300,24 +276,20 @@ typedef struct
     uint64_t awdl_out;
 } js_net_interface_counter;
 
-static uint64_t js_net_counter_add (uint64_t counter, uint64_t bytes)
-{
-    if (bytes < (counter % 0xFFFFFFFF))
-    {
+static uint64_t js_net_counter_add (uint64_t counter, uint64_t bytes) {
+    if (bytes < (counter % 0xFFFFFFFF)) {
         counter += 0xFFFFFFFF - (counter % 0xFFFFFFFF);
         
         counter += bytes;
     }
-    else
-    {
+    else {
         counter = bytes;
     }
     
     return counter;
 }
 
-static uint64_t js_net_counter_get_by_type (js_net_interface_counter *counter, JSNetworkTrafficType type)
-{
+static uint64_t js_net_counter_get_by_type (js_net_interface_counter *counter, JSNetworkTrafficType type) {
     uint64_t bytes = 0;
     
     if (type & JSNetworkTrafficTypeWWANSent) bytes += counter->pdp_ip_out;
@@ -354,22 +326,18 @@ static js_net_interface_counter js_get_net_interface_counter()
     
     const struct ifaddrs *cursor;
     
-    if (getifaddrs(&addrs) == 0)
-    {
+    if (getifaddrs(&addrs) == 0) {
         cursor = addrs;
         
         dispatch_semaphore_wait(lock, DISPATCH_TIME_FOREVER);
         
-        while (cursor)
-        {
-            if (cursor->ifa_addr->sa_family == AF_LINK)
-            {
+        while (cursor) {
+            if (cursor->ifa_addr->sa_family == AF_LINK) {
                 const struct if_data *data = cursor->ifa_data;
                 
                 NSString *name = cursor->ifa_name ? [NSString stringWithUTF8String:cursor->ifa_name] : nil;
                 
-                if (name)
-                {
+                if (name) {
                     uint64_t counter_in = ((NSNumber *)sharedInCounters[name]).unsignedLongLongValue;
                     
                     counter_in = js_net_counter_add(counter_in, data->ifi_ibytes);
@@ -382,20 +350,17 @@ static js_net_interface_counter js_get_net_interface_counter()
                     
                     sharedOutCounters[name] = @(counter_out);
                     
-                    if ([name hasPrefix:@"en"])
-                    {
+                    if ([name hasPrefix:@"en"]) {
                         counter.en_in += counter_in;
                         
                         counter.en_out += counter_out;
                     }
-                    else if ([name hasPrefix:@"awdl"])
-                    {
+                    else if ([name hasPrefix:@"awdl"]) {
                         counter.awdl_in += counter_in;
                         
                         counter.awdl_out += counter_out;
                     }
-                    else if ([name hasPrefix:@"pdp_ip"])
-                    {
+                    else if ([name hasPrefix:@"pdp_ip"]) {
                         counter.pdp_ip_in += counter_in;
                         
                         counter.pdp_ip_out += counter_out;
@@ -414,73 +379,63 @@ static js_net_interface_counter js_get_net_interface_counter()
     return counter;
 }
 
-- (uint64_t)js_getNetworkTrafficBytes:(JSNetworkTrafficType)types
-{
+- (uint64_t)js_getNetworkTrafficBytes:(JSNetworkTrafficType)types {
     js_net_interface_counter counter = js_get_net_interface_counter();
     
     return js_net_counter_get_by_type(&counter, types);
 }
 
 #pragma mark 磁盘空间
-- (int64_t)js_diskSpace
-{
+- (int64_t)js_diskSpace {
     NSError *error = nil;
     
     NSDictionary *attrs = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory()
                                                                                   error:&error];
     
-    if (error)
-    {
+    if (error) {
         return -1;
     }
     
     int64_t space =  [[attrs objectForKey:NSFileSystemSize] longLongValue];
     
-    if (space < 0)
-    {
+    if (space < 0) {
         space = -1;
     }
     
     return space;
 }
 
-- (int64_t)js_diskSpaceFree
-{
+- (int64_t)js_diskSpaceFree {
     NSError *error = nil;
     
     NSDictionary *attrs = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory()
                                                                                   error:&error];
     
-    if (error)
-    {
+    if (error) {
         return -1;
     }
     
     int64_t space =  [[attrs objectForKey:NSFileSystemFreeSize] longLongValue];
     
-    if (space < 0)
-    {
+    if (space < 0) {
         space = -1;
     }
     
     return space;
 }
 
-- (int64_t)js_diskSpaceUsed
-{
+- (int64_t)js_diskSpaceUsed{
     int64_t total = self.js_diskSpace;
     
     int64_t free = self.js_diskSpaceFree;
     
-    if (total < 0 || free < 0)
-    {
+    if (total < 0 || free < 0) {
         return -1;
     }
     
     int64_t used = total - free;
     
-    if (used < 0)
-    {
+    if (used < 0) {
         used = -1;
     }
     
@@ -488,20 +443,17 @@ static js_net_interface_counter js_get_net_interface_counter()
 }
 
 #pragma mark 内存信息
-- (int64_t)js_memoryTotal
-{
+- (int64_t)js_memoryTotal {
     int64_t mem = [[NSProcessInfo processInfo] physicalMemory];
     
-    if (mem < -1)
-    {
+    if (mem < -1) {
         mem = -1;
     }
     
     return mem;
 }
 
-- (int64_t)js_memoryUsed
-{
+- (int64_t)js_memoryUsed {
     mach_port_t host_port = mach_host_self();
     
     mach_msg_type_number_t host_size = sizeof(vm_statistics_data_t) / sizeof(integer_t);
@@ -514,23 +466,20 @@ static js_net_interface_counter js_get_net_interface_counter()
     
     kern = host_page_size(host_port, &page_size);
     
-    if (kern != KERN_SUCCESS)
-    {
+    if (kern != KERN_SUCCESS) {
         return -1;
     }
     
     kern = host_statistics(host_port, HOST_VM_INFO, (host_info_t)&vm_stat, &host_size);
     
-    if (kern != KERN_SUCCESS)
-    {
+    if (kern != KERN_SUCCESS) {
         return -1;
     }
     
     return page_size * (vm_stat.active_count + vm_stat.inactive_count + vm_stat.wire_count);
 }
 
-- (int64_t)js_memoryFree
-{
+- (int64_t)js_memoryFree {
     mach_port_t host_port = mach_host_self();
     
     mach_msg_type_number_t host_size = sizeof(vm_statistics_data_t) / sizeof(integer_t);
@@ -543,23 +492,20 @@ static js_net_interface_counter js_get_net_interface_counter()
     
     kern = host_page_size(host_port, &page_size);
     
-    if (kern != KERN_SUCCESS)
-    {
+    if (kern != KERN_SUCCESS) {
         return -1;
     }
     
     kern = host_statistics(host_port, HOST_VM_INFO, (host_info_t)&vm_stat, &host_size);
     
-    if (kern != KERN_SUCCESS)
-    {
+    if (kern != KERN_SUCCESS) {
         return -1;
     }
     
     return vm_stat.free_count * page_size;
 }
 
-- (int64_t)js_memoryActive
-{
+- (int64_t)js_memoryActive {
     mach_port_t host_port = mach_host_self();
     
     mach_msg_type_number_t host_size = sizeof(vm_statistics_data_t) / sizeof(integer_t);
@@ -572,23 +518,20 @@ static js_net_interface_counter js_get_net_interface_counter()
     
     kern = host_page_size(host_port, &page_size);
     
-    if (kern != KERN_SUCCESS)
-    {
+    if (kern != KERN_SUCCESS) {
         return -1;
     }
     
     kern = host_statistics(host_port, HOST_VM_INFO, (host_info_t)&vm_stat, &host_size);
     
-    if (kern != KERN_SUCCESS)
-    {
+    if (kern != KERN_SUCCESS) {
         return -1;
     }
     
     return vm_stat.active_count * page_size;
 }
 
-- (int64_t)js_memoryInactive
-{
+- (int64_t)js_memoryInactive {
     mach_port_t host_port = mach_host_self();
     
     mach_msg_type_number_t host_size = sizeof(vm_statistics_data_t) / sizeof(integer_t);
@@ -601,23 +544,20 @@ static js_net_interface_counter js_get_net_interface_counter()
     
     kern = host_page_size(host_port, &page_size);
     
-    if (kern != KERN_SUCCESS)
-    {
+    if (kern != KERN_SUCCESS) {
         return -1;
     }
     
     kern = host_statistics(host_port, HOST_VM_INFO, (host_info_t)&vm_stat, &host_size);
     
-    if (kern != KERN_SUCCESS)
-    {
+    if (kern != KERN_SUCCESS) {
         return -1;
     }
     
     return vm_stat.inactive_count * page_size;
 }
 
-- (int64_t)js_memoryWired
-{
+- (int64_t)js_memoryWired {
     mach_port_t host_port = mach_host_self();
     
     mach_msg_type_number_t host_size = sizeof(vm_statistics_data_t) / sizeof(integer_t);
@@ -630,15 +570,13 @@ static js_net_interface_counter js_get_net_interface_counter()
     
     kern = host_page_size(host_port, &page_size);
     
-    if (kern != KERN_SUCCESS)
-    {
+    if (kern != KERN_SUCCESS) {
         return -1;
     }
     
     kern = host_statistics(host_port, HOST_VM_INFO, (host_info_t)&vm_stat, &host_size);
     
-    if (kern != KERN_SUCCESS)
-    {
+    if (kern != KERN_SUCCESS) {
         return -1;
     }
     
@@ -646,32 +584,27 @@ static js_net_interface_counter js_get_net_interface_counter()
 }
 
 #pragma mark CPU信息
-- (NSUInteger)js_cpuCount
-{
+- (NSUInteger)js_cpuCount {
     return [NSProcessInfo processInfo].activeProcessorCount;
 }
 
-- (float)js_cpuUsage
-{
+- (float)js_cpuUsage {
     float cpu = 0;
     
     NSArray *cpus = [self js_cpuUsagePerProcessor];
     
-    if (cpus.count == 0)
-    {
+    if (cpus.count == 0) {
         return -1;
     }
     
-    for (NSNumber *n in cpus)
-    {
+    for (NSNumber *n in cpus) {
         cpu += n.floatValue;
     }
     
     return cpu;
 }
 
-- (NSArray *)js_cpuUsagePerProcessor
-{
+- (NSArray *)js_cpuUsagePerProcessor {
     processor_info_array_t _cpuInfo, _prevCPUInfo = nil;
     
     mach_msg_type_number_t _numCPUInfo, _numPrevCPUInfo = 0;
@@ -686,8 +619,7 @@ static js_net_interface_counter js_get_net_interface_counter()
     
     int _status = sysctl(_mib, 2U, &_numCPUs, &_sizeOfNumCPUs, NULL, 0U);
     
-    if (_status)
-    {
+    if (_status) {
         _numCPUs = 1;
     }
     
@@ -697,18 +629,15 @@ static js_net_interface_counter js_get_net_interface_counter()
     
     kern_return_t err = host_processor_info(mach_host_self(), PROCESSOR_CPU_LOAD_INFO, &_numCPUsU, &_cpuInfo, &_numCPUInfo);
     
-    if (err == KERN_SUCCESS)
-    {
+    if (err == KERN_SUCCESS) {
         [_cpuUsageLock lock];
         
         NSMutableArray *cpus = [NSMutableArray new];
         
-        for (unsigned i = 0U; i < _numCPUs; ++i)
-        {
+        for (unsigned i = 0U; i < _numCPUs; ++i) {
             Float32 _inUse, _total;
             
-            if (_prevCPUInfo)
-            {
+            if (_prevCPUInfo) {
                 _inUse = (
                           (_cpuInfo[(CPU_STATE_MAX * i) + CPU_STATE_USER]   - _prevCPUInfo[(CPU_STATE_MAX * i) + CPU_STATE_USER])
                           + (_cpuInfo[(CPU_STATE_MAX * i) + CPU_STATE_SYSTEM] - _prevCPUInfo[(CPU_STATE_MAX * i) + CPU_STATE_SYSTEM])
@@ -717,8 +646,7 @@ static js_net_interface_counter js_get_net_interface_counter()
                 
                 _total = _inUse + (_cpuInfo[(CPU_STATE_MAX * i) + CPU_STATE_IDLE] - _prevCPUInfo[(CPU_STATE_MAX * i) + CPU_STATE_IDLE]);
             }
-            else
-            {
+            else {
                 _inUse = _cpuInfo[(CPU_STATE_MAX * i) + CPU_STATE_USER] + _cpuInfo[(CPU_STATE_MAX * i) + CPU_STATE_SYSTEM] + _cpuInfo[(CPU_STATE_MAX * i) + CPU_STATE_NICE];
                 
                 _total = _inUse + _cpuInfo[(CPU_STATE_MAX * i) + CPU_STATE_IDLE];
@@ -729,8 +657,7 @@ static js_net_interface_counter js_get_net_interface_counter()
         
         [_cpuUsageLock unlock];
         
-        if (_prevCPUInfo)
-        {
+        if (_prevCPUInfo) {
             size_t prevCpuInfoSize = sizeof(integer_t) * _numPrevCPUInfo;
             
             vm_deallocate(mach_task_self(), (vm_address_t)_prevCPUInfo, prevCpuInfoSize);
@@ -738,8 +665,7 @@ static js_net_interface_counter js_get_net_interface_counter()
         
         return cpus;
     }
-    else
-    {
+    else {
         return nil;
     }
 }

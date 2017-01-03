@@ -13,106 +13,87 @@
 
 @implementation NSString (JSCategory)
 #pragma mark HASH
-- (NSString *)js_md2String
-{
+- (NSString *)js_md2String {
     return [[self dataUsingEncoding:NSUTF8StringEncoding] js_md2String];
 }
 
-- (NSString *)js_md4String
-{
+- (NSString *)js_md4String {
     return [[self dataUsingEncoding:NSUTF8StringEncoding] js_md4String];
 }
 
-- (NSString *)js_md5String
-{
+- (NSString *)js_md5String {
     return [[self dataUsingEncoding:NSUTF8StringEncoding] js_md5String];
 }
 
-- (NSString *)js_sha1String
-{
+- (NSString *)js_sha1String {
     return [[self dataUsingEncoding:NSUTF8StringEncoding] js_sha1String];
 }
 
-- (NSString *)js_sha224String
-{
+- (NSString *)js_sha224String {
     return [[self dataUsingEncoding:NSUTF8StringEncoding] js_sha224String];
 }
 
-- (NSString *)js_sha256String
-{
+- (NSString *)js_sha256String {
     return [[self dataUsingEncoding:NSUTF8StringEncoding] js_sha256String];
 }
 
-- (NSString *)js_sha384String
-{
+- (NSString *)js_sha384String {
     return [[self dataUsingEncoding:NSUTF8StringEncoding] js_sha384String];
 }
 
-- (NSString *)js_sha512String
-{
+- (NSString *)js_sha512String {
     return [[self dataUsingEncoding:NSUTF8StringEncoding] js_sha512String];
 }
 
-- (NSString *)js_hmacMD5StringWithKey:(NSString *)key
-{
+- (NSString *)js_hmacMD5StringWithKey:(NSString *)key {
     return [[self dataUsingEncoding:NSUTF8StringEncoding]
             js_hmacMD5StringWithKey:key];
 }
 
-- (NSString *)js_hmacSHA1StringWithKey:(NSString *)key
-{
+- (NSString *)js_hmacSHA1StringWithKey:(NSString *)key {
     return [[self dataUsingEncoding:NSUTF8StringEncoding]
             js_hmacSHA1StringWithKey:key];
 }
 
-- (NSString *)js_hmacSHA224StringWithKey:(NSString *)key
-{
+- (NSString *)js_hmacSHA224StringWithKey:(NSString *)key {
     return [[self dataUsingEncoding:NSUTF8StringEncoding]
             js_hmacSHA224StringWithKey:key];
 }
 
-- (NSString *)js_hmacSHA256StringWithKey:(NSString *)key
-{
+- (NSString *)js_hmacSHA256StringWithKey:(NSString *)key {
     return [[self dataUsingEncoding:NSUTF8StringEncoding]
             js_hmacSHA256StringWithKey:key];
 }
 
-- (NSString *)js_hmacSHA384StringWithKey:(NSString *)key
-{
+- (NSString *)js_hmacSHA384StringWithKey:(NSString *)key {
     return [[self dataUsingEncoding:NSUTF8StringEncoding]
             js_hmacSHA384StringWithKey:key];
 }
 
-- (NSString *)js_hmacSHA512StringWithKey:(NSString *)key
-{
+- (NSString *)js_hmacSHA512StringWithKey:(NSString *)key {
     return [[self dataUsingEncoding:NSUTF8StringEncoding]
             js_hmacSHA512StringWithKey:key];
 }
 
-- (NSString *)js_crc32String
-{
+- (NSString *)js_crc32String {
     return [[self dataUsingEncoding:NSUTF8StringEncoding] js_crc32String];
 }
 
 #pragma mark 编码与解码
-- (NSString *)js_base64EncodedString
-{
+- (NSString *)js_base64EncodedString {
     return [[self dataUsingEncoding:NSUTF8StringEncoding]
             js_base64EncodedString];
 }
 
-+ (NSString *)js_stringWithBase64EncodedString:(NSString *)base64EncodedString
-{
++ (NSString *)js_stringWithBase64EncodedString:(NSString *)base64EncodedString {
     NSData *data = [NSData js_dataWithBase64EncodedString:base64EncodedString];
     
     return [[NSString alloc] initWithData:data
                                  encoding:NSUTF8StringEncoding];
 }
 
-- (NSString *)js_stringByURLEncode
-{
-    if ([self respondsToSelector:@selector(stringByAddingPercentEncodingWithAllowedCharacters:)])
-    {
+- (NSString *)js_stringByURLEncode {
+    if ([self respondsToSelector:@selector(stringByAddingPercentEncodingWithAllowedCharacters:)]) {
         /**
          AFNetworking/AFURLRequestSerialization.m
          
@@ -140,8 +121,7 @@
         
         NSMutableString *escaped = @"".mutableCopy;
         
-        while (index < self.length)
-        {
+        while (index < self.length) {
             NSUInteger length = MIN(self.length - index, batchSize);
             
             NSRange range = NSMakeRange(index, length);
@@ -159,8 +139,7 @@
         
         return escaped;
     }
-    else
-    {
+    else {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
         CFStringEncoding cfEncoding = CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding);
@@ -178,14 +157,11 @@
     }
 }
 
-- (NSString *)js_stringByURLDecode
-{
-    if ([self respondsToSelector:@selector(stringByRemovingPercentEncoding)])
-    {
+- (NSString *)js_stringByURLDecode {
+    if ([self respondsToSelector:@selector(stringByRemovingPercentEncoding)]) {
         return [self stringByRemovingPercentEncoding];
     }
-    else
-    {
+    else {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
         CFStringEncoding en = CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding);
@@ -208,23 +184,19 @@
 #pragma mark Drawing
 - (CGSize)js_sizeForFont:(UIFont *)font
                     size:(CGSize)size
-                    mode:(NSLineBreakMode)lineBreakMode
-{
+                    mode:(NSLineBreakMode)lineBreakMode {
     CGSize result;
     
-    if (!font)
-    {
+    if (!font) {
         font = [UIFont systemFontOfSize:12];
     }
     
-    if ([self respondsToSelector:@selector(boundingRectWithSize:options:attributes:context:)])
-    {
+    if ([self respondsToSelector:@selector(boundingRectWithSize:options:attributes:context:)]) {
         NSMutableDictionary *attr = [NSMutableDictionary new];
         
         attr[NSFontAttributeName] = font;
         
-        if (lineBreakMode != NSLineBreakByWordWrapping)
-        {
+        if (lineBreakMode != NSLineBreakByWordWrapping) {
             NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
             
             paragraphStyle.lineBreakMode = lineBreakMode;
@@ -239,8 +211,7 @@
         
         result = rect.size;
     }
-    else
-    {
+    else {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
         result = [self sizeWithFont:font
@@ -252,19 +223,16 @@
     return result;
 }
 
-- (CGFloat)js_widthForFont:(UIFont *)font
-{
+- (CGFloat)js_widthForFont:(UIFont *)font {
     CGSize size = [self js_sizeForFont:font
                                   size:CGSizeMake(HUGE, HUGE)
                                   mode:NSLineBreakByWordWrapping];
     
     return size.width;
-
 }
 
 - (CGFloat)js_heightForFont:(UIFont *)font
-                      width:(CGFloat)width
-{
+                      width:(CGFloat)width {
     CGSize size = [self js_sizeForFont:font
                                   size:CGSizeMake(width, HUGE)
                                   mode:NSLineBreakByWordWrapping];
@@ -274,69 +242,58 @@
 
 #pragma mark 正则表达式
 - (BOOL)js_matchesRegex:(NSString *)regex
-                options:(NSRegularExpressionOptions)options
-{
+                options:(NSRegularExpressionOptions)options {
     NSRegularExpression *pattern = [NSRegularExpression regularExpressionWithPattern:regex
                                                                              options:options
                                                                                error:NULL];
-    if (!pattern)
-    {
+    if (!pattern) {
         return NO;
     }
+    
     return ([pattern numberOfMatchesInString:self
                                      options:0
                                        range:NSMakeRange(0, self.length)] > 0);
 }
 
 #pragma mark NSNumber
-- (char)js_charValue
-{
+- (char)js_charValue {
     return self.js_numberValue.charValue;
 }
 
-- (unsigned char)js_unsignedCharValue
-{
+- (unsigned char)js_unsignedCharValue {
     return self.js_numberValue.unsignedCharValue;
 }
 
-- (short)js_shortValue
-{
+- (short)js_shortValue {
     return self.js_numberValue.shortValue;
 }
 
-- (unsigned short)js_unsignedShortValue
-{
+- (unsigned short)js_unsignedShortValue {
     return self.js_numberValue.unsignedShortValue;
 }
 
-- (unsigned int)js_unsignedIntValue
-{
+- (unsigned int)js_unsignedIntValue {
     return self.js_numberValue.unsignedIntValue;
 }
 
-- (long)js_longValue
-{
+- (long)js_longValue {
     return self.js_numberValue.longValue;
 }
 
-- (unsigned long)js_unsignedLongValue
-{
+- (unsigned long)js_unsignedLongValue {
     return self.js_numberValue.unsignedLongValue;
 }
 
-- (unsigned long long)js_unsignedLongLongValue
-{
+- (unsigned long long)js_unsignedLongLongValue {
     return self.js_numberValue.unsignedLongLongValue;
 }
 
-- (NSUInteger)js_unsignedIntegerValue
-{
+- (NSUInteger)js_unsignedIntegerValue {
     return self.js_numberValue.unsignedIntegerValue;
 }
 
 #pragma mark Other
-+ (NSString *)js_stringWithUUID
-{
++ (NSString *)js_stringWithUUID {
     CFUUIDRef uuid = CFUUIDCreate(NULL);
     
     CFStringRef string = CFUUIDCreateString(NULL, uuid);
@@ -346,23 +303,19 @@
     return (__bridge_transfer NSString *)string;
 }
 
-- (NSString *)js_stringByTrim
-{
+- (NSString *)js_stringByTrim {
     NSCharacterSet *set = [NSCharacterSet whitespaceAndNewlineCharacterSet];
     
     return [self stringByTrimmingCharactersInSet:set];
 }
 
-- (BOOL)js_isNotBlank
-{
+- (BOOL)js_isNotBlank {
     NSCharacterSet *blank = [NSCharacterSet whitespaceAndNewlineCharacterSet];
     
-    for (NSInteger i = 0; i < self.length; ++i)
-    {
+    for (NSInteger i = 0; i < self.length; ++i) {
         unichar c = [self characterAtIndex:i];
         
-        if (![blank characterIsMember:c])
-        {
+        if (![blank characterIsMember:c]) {
             return YES;
         }
     }
@@ -370,33 +323,27 @@
     return NO;
 }
 
-- (BOOL)js_containsString:(NSString *)string
-{
-    if (string == nil)
-    {
+- (BOOL)js_containsString:(NSString *)string {
+    if (string == nil) {
         return NO;
     }
     
     return [self rangeOfString:string].location != NSNotFound;
 }
 
-- (NSNumber *)js_numberValue
-{
+- (NSNumber *)js_numberValue {
     return [NSNumber js_numberWithString:self];
 }
 
-- (NSData *)js_dataValue
-{
+- (NSData *)js_dataValue {
     return [self dataUsingEncoding:NSUTF8StringEncoding];
 }
 
-- (NSRange)js_rangeOfAll
-{
+- (NSRange)js_rangeOfAll {
     return NSMakeRange(0, self.length);
 }
 
-- (id)js_jsonValueDecoded
-{
+- (id)js_jsonValueDecoded {
     return [[self js_dataValue] js_jsonValueDecoded];
 }
 
