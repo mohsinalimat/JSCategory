@@ -1,0 +1,6 @@
+framework module JSCategory {
+  umbrella header "JSCategory-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+use_frameworks!
+
+target 'JSCategory_Example' do
+  pod 'JSCategory', :path => '../'
+
+end
