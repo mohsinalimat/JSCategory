@@ -60,7 +60,7 @@
 
 /* Begin PBXFileReference section */
 		0204C22318A48C026721B9046E49A1B4 /* JSCategory.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JSCategory.xcconfig; sourceTree = "<group>"; };
-		0A0CE0FF419EE93313DCC7364875CC30 /* Pods-JSCategory_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-JSCategory_Example.modulemap"; sourceTree = "<group>"; };
+		0A0CE0FF419EE93313DCC7364875CC30 /* Pods-JSCategory_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-JSCategory_Example.modulemap"; sourceTree = "<group>"; };
 		1253A2250ACBACA5C60B749A661CBAFA /* Pods-JSCategory_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JSCategory_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		14661C2D85D162C534B0B60E46999B00 /* Pods-JSCategory_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-JSCategory_Example-umbrella.h"; sourceTree = "<group>"; };
 		19B2B14F82499B9F3D65A329753D8C72 /* NSString+JSCategory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+JSCategory.h"; sourceTree = "<group>"; };
@@ -87,10 +87,10 @@
 		72E91777DF9613BD052E9BFF5CB14242 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
 		745F05F682EE06E0713147232BFA1575 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		7A639005DFA9391F2A4E52F103F860B5 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
-		7AB4C071ACF237DE50D28A88456CAA18 /* JSCategory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JSCategory.framework; path = JSCategory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AB4C071ACF237DE50D28A88456CAA18 /* JSCategory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JSCategory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8611249A2B9733AAC6A7F3AFD99B60D5 /* NSDate+JSCategory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDate+JSCategory.h"; sourceTree = "<group>"; };
 		91DEC51D3E3C824629119959A7ABF5DF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9BD3B03282869EBC1D9AE6C07E7ECF06 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CoreImage.framework; sourceTree = DEVELOPER_DIR; };
 		9CA18958D25BCB48D3F1245E474858C7 /* JSCategory-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JSCategory-prefix.pch"; sourceTree = "<group>"; };
 		A91903A270372D1592377718DF3709A8 /* UIDevice+JSCategory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIDevice+JSCategory.h"; sourceTree = "<group>"; };
@@ -104,13 +104,13 @@
 		D5915FEF569D5A0B65DCDD83E6126943 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		D8718C0203A5407EECD0C51238CE85CE /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CoreFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		D8B9899D8016F556AA93C723B63AE626 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		DB2475F9D441D12FC80D8CF7C0B76582 /* JSCategory.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = JSCategory.modulemap; sourceTree = "<group>"; };
+		DB2475F9D441D12FC80D8CF7C0B76582 /* JSCategory.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = JSCategory.modulemap; sourceTree = "<group>"; };
 		DBCCA39DEABA26F4116A454313065CE4 /* UIButton+JSCategory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIButton+JSCategory.m"; sourceTree = "<group>"; };
 		E2A7D6686CEF228DC35EDB4951E694D4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		E385FC181751452725D8E27082941060 /* JSCategory-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JSCategory-dummy.m"; sourceTree = "<group>"; };
 		E6F1555E83A666B1F462D7DB78F19C86 /* Pods-JSCategory_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JSCategory_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		ECDA296F50D5AFFF618DDA73B6595DEE /* UIColor+JSCategory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIColor+JSCategory.h"; sourceTree = "<group>"; };
-		F255547406C1624681E59C6190F06342 /* Pods_JSCategory_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_JSCategory_Example.framework; path = "Pods-JSCategory_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F255547406C1624681E59C6190F06342 /* Pods_JSCategory_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JSCategory_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA96B83759A15E4AE146AC8F4B9FDE6E /* NSNumber+JSCategory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSNumber+JSCategory.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,7 +166,6 @@
 				8611249A2B9733AAC6A7F3AFD99B60D5 /* NSDate+JSCategory.h */,
 				2BF5C78550D06153F7D8D524EC69E929 /* NSDate+JSCategory.m */,
 			);
-			name = NSDate;
 			path = NSDate;
 			sourceTree = "<group>";
 		};
@@ -176,7 +175,6 @@
 				B3CC4A204ADB0C09FEB566A3F946EA01 /* NSData+JSCategory.h */,
 				55A501E29D870D3332D7741AED52C03C /* NSData+JSCategory.m */,
 			);
-			name = NSData;
 			path = NSData;
 			sourceTree = "<group>";
 		};
@@ -186,7 +184,6 @@
 				689CD2BEB74FB9706ED9A72B96A403CD /* UIView+JSCategory.h */,
 				2C77C82BF2D6AF35680BAB1DDAEE430A /* UIView+JSCategory.m */,
 			);
-			name = UIView;
 			path = UIView;
 			sourceTree = "<group>";
 		};
@@ -210,7 +207,6 @@
 				49A69C1CC5EC6BE1FDF0AC03A99B78B8 /* NSNumber */,
 				857E77BFDAB8FF3E6DB2ADA7147BC3FD /* NSString */,
 			);
-			name = Foundation;
 			path = Foundation;
 			sourceTree = "<group>";
 		};
@@ -232,7 +228,6 @@
 				DE837A8D0FFB3BA9C016451927C2EEDD /* UIImage */,
 				11D75ACFE7575A52BBA931B038D77637 /* UIView */,
 			);
-			name = UIKit;
 			path = UIKit;
 			sourceTree = "<group>";
 		};
@@ -258,7 +253,6 @@
 				FA96B83759A15E4AE146AC8F4B9FDE6E /* NSNumber+JSCategory.h */,
 				5EA2F23B4379641A6E8A2DCABB30B0AE /* NSNumber+JSCategory.m */,
 			);
-			name = NSNumber;
 			path = NSNumber;
 			sourceTree = "<group>";
 		};
@@ -304,7 +298,6 @@
 				28023DA28BC0951ADD1C3C94931CA2BF /* UIButton+JSCategory.h */,
 				DBCCA39DEABA26F4116A454313065CE4 /* UIButton+JSCategory.m */,
 			);
-			name = UIButton;
 			path = UIButton;
 			sourceTree = "<group>";
 		};
@@ -314,7 +307,6 @@
 				19B2B14F82499B9F3D65A329753D8C72 /* NSString+JSCategory.h */,
 				627AA558B87368B8AD3902BAB77AA0B4 /* NSString+JSCategory.m */,
 			);
-			name = NSString;
 			path = NSString;
 			sourceTree = "<group>";
 		};
@@ -324,7 +316,6 @@
 				4966C805A0A9DB01DA906FD852A921D0 /* NSDictionary+JSCategory.h */,
 				BAE5B50BDBE1B392E1439458A5978E8C /* NSDictionary+JSCategory.m */,
 			);
-			name = NSDictionary;
 			path = NSDictionary;
 			sourceTree = "<group>";
 		};
@@ -334,7 +325,6 @@
 				A91903A270372D1592377718DF3709A8 /* UIDevice+JSCategory.h */,
 				4F976647359185533435D2F8E975C3F6 /* UIDevice+JSCategory.m */,
 			);
-			name = UIDevice;
 			path = UIDevice;
 			sourceTree = "<group>";
 		};
@@ -358,7 +348,6 @@
 				ECDA296F50D5AFFF618DDA73B6595DEE /* UIColor+JSCategory.h */,
 				409F69766215C5C0E07FC5A0B48E6F71 /* UIColor+JSCategory.m */,
 			);
-			name = UIColor;
 			path = UIColor;
 			sourceTree = "<group>";
 		};
@@ -368,7 +357,6 @@
 				64DF64CF1D4D1612BAA78DF119139B86 /* UIImage+JSCategory.h */,
 				425FBB8C66E5EF4E3CF67F5E69458EE4 /* UIImage+JSCategory.m */,
 			);
-			name = UIImage;
 			path = UIImage;
 			sourceTree = "<group>";
 		};
@@ -379,7 +367,6 @@
 				1DF0BB6550B1A3F4295ABC7AD1D80181 /* Foundation */,
 				243E50029693B14991B72D77A8A9408E /* UIKit */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -388,7 +375,6 @@
 			children = (
 				DEDBD8576743A95FD2D7A447AEB70C97 /* Classes */,
 			);
-			name = JSCategory;
 			path = JSCategory;
 			sourceTree = "<group>";
 		};
@@ -398,7 +384,6 @@
 				AB0475CA8B5543D003BA659266A73091 /* UIApplication+JSCategory.h */,
 				C4AFDDE7122EBB7AA75337B1503C03FD /* UIApplication+JSCategory.m */,
 			);
-			name = UIApplication;
 			path = UIApplication;
 			sourceTree = "<group>";
 		};
@@ -408,7 +393,6 @@
 				51BA4F58F574F1AEB77EC2C0C1F9555F /* NSArray+JSCategory.h */,
 				3104E5F440E31ABAB2D8A9BE23D4BE16 /* NSArray+JSCategory.m */,
 			);
-			name = NSArray;
 			path = NSArray;
 			sourceTree = "<group>";
 		};
