@@ -69,8 +69,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  AWDL: Apple Wireless Direct Link (点对点连接): AirDrop, AirPlay, GameKit
  */
-typedef NS_OPTIONS (NSUInteger, JSNetworkTrafficType)
-{
+typedef NS_OPTIONS (NSUInteger, JSNetworkTrafficType) {
     JSNetworkTrafficTypeWWANSent     = 1 << 0,
     JSNetworkTrafficTypeWWANReceived = 1 << 1,
     JSNetworkTrafficTypeWIFISent     = 1 << 2,
