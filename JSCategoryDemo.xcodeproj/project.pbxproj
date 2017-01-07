@@ -31,6 +31,7 @@
 		FD9481AB1DF80E8D00AB75F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD9481A91DF80E8D00AB75F3 /* Main.storyboard */; };
 		FD9481AD1DF80E8D00AB75F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD9481AC1DF80E8D00AB75F3 /* Assets.xcassets */; };
 		FD9481B01DF80E8D00AB75F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD9481AE1DF80E8D00AB75F3 /* LaunchScreen.storyboard */; };
+		FDA98B531E1D5D0100C13ADD /* NSDictionary+JSCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA98B521E1D5D0100C13ADD /* NSDictionary+JSCategory.m */; };
 		FDAB87741E1C5EAF00ABE362 /* NSArray+JSCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAB87731E1C5EAF00ABE362 /* NSArray+JSCategory.m */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,8 @@
 		FD9481AC1DF80E8D00AB75F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD9481AF1DF80E8D00AB75F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD9481B11DF80E8D00AB75F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDA98B511E1D5D0100C13ADD /* NSDictionary+JSCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+JSCategory.h"; sourceTree = "<group>"; };
+		FDA98B521E1D5D0100C13ADD /* NSDictionary+JSCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JSCategory.m"; sourceTree = "<group>"; };
 		FDAB87721E1C5EAF00ABE362 /* NSArray+JSCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+JSCategory.h"; sourceTree = "<group>"; };
 		FDAB87731E1C5EAF00ABE362 /* NSArray+JSCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+JSCategory.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,6 +124,7 @@
 				FDAB87711E1C5E5000ABE362 /* NSArray */,
 				FD2976CD1E00E26B00669376 /* NSData */,
 				FD2976D01E00E26B00669376 /* NSDate */,
+				FDA98B501E1D5CEB00C13ADD /* NSDictionary */,
 				FD2976D31E00E26B00669376 /* NSNumber */,
 				FD2976D61E00E26B00669376 /* NSString */,
 			);
@@ -166,12 +170,12 @@
 		FD2976D91E00E26B00669376 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				FD11E9981E0A388500810022 /* UIImage */,
-				FD11E9911E0A1BD100810022 /* UIView */,
+				FD2976DA1E00E26B00669376 /* UIApplication */,
 				FD2976EA1E01193A00669376 /* UIButton */,
 				FD2976E61E010B3700669376 /* UIColor */,
-				FD2976DA1E00E26B00669376 /* UIApplication */,
 				FD2976E21E00E9D300669376 /* UIDevice */,
+				FD11E9981E0A388500810022 /* UIImage */,
+				FD11E9911E0A1BD100810022 /* UIView */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -279,6 +283,15 @@
 			path = JSCategory;
 			sourceTree = "<group>";
 		};
+		FDA98B501E1D5CEB00C13ADD /* NSDictionary */ = {
+			isa = PBXGroup;
+			children = (
+				FDA98B511E1D5D0100C13ADD /* NSDictionary+JSCategory.h */,
+				FDA98B521E1D5D0100C13ADD /* NSDictionary+JSCategory.m */,
+			);
+			path = NSDictionary;
+			sourceTree = "<group>";
+		};
 		FDAB87711E1C5E5000ABE362 /* NSArray */ = {
 			isa = PBXGroup;
 			children = (
@@ -373,6 +386,7 @@
 				FD2976ED1E01195000669376 /* UIButton+JSCategory.m in Sources */,
 				FD2976DB1E00E26B00669376 /* NSData+JSCategory.m in Sources */,
 				FDAB87741E1C5EAF00ABE362 /* NSArray+JSCategory.m in Sources */,
+				FDA98B531E1D5D0100C13ADD /* NSDictionary+JSCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

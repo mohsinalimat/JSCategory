@@ -13,61 +13,76 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIImage (JSCategory)
 #pragma mark 创建图片
 /**
- 通过GIF的二进制文件创建动画图片. 创建之后, 可以通过属性 '.image' 加载. 
- 如果该二进制文件不是可动的GIF, 该方法等同于 '[UIImage imageWithData:data scale:scale]'
+ 通过 GIF 的二进制文件创建动画图片. 创建之后, 可以通过属性 '.image' 加载.
+ 如果该二进制文件不是可动的 GIF, 该方法等同于 '[UIImage imageWithData:data scale:scale]'
  
  @discussion  该方法加载性能良好, 但是会占用较多的内存空间 (width * height * frames 字节).
- 仅适用于加载较小的GIF图片, 例如: 可动的Emoji.
+ 仅适用于加载较小的 GIF 图片, 例如: 可动的 Emoji.
 
- @param data   GIF的二进制数据
+ @param data   GIF 的二进制数据
  @param scale  缩放比例
  */
-+ (UIImage *)js_imageWithSmallGIFData:(NSData *)data
-                                scale:(CGFloat)scale;
++ (nullable UIImage *)js_imageWithSmallGIFData:(NSData *)data
+                                         scale:(CGFloat)scale;
 
 /**
- 该二进制文件是否为可动的GIF文件.
+ 该二进制文件是否为可动的 GIF 文件.
  */
 + (BOOL)js_isAnimatedGIFData:(NSData *)data;
 
 /**
- 指定文件路径的文件是否为GIF.
+ 指定文件路径的文件是否为 GIF.
  */
 + (BOOL)js_isAnimatedGIFFile:(NSString *)path;
 
 /**
- 通过PDF文件数据或路径创建图片
+ 通过 PDF 文件数据或路径创建图片
  
- @discussion  如果该PDF文件包含多页, 仅返回第一页的内容.
- Image's 缩放比例为默认缩放比例, 大小与PDF文件大小相同
+ @discussion  如果该 PDF 文件包含多页, 仅返回第一页的内容.
+ Image's 比例与当前屏幕比例相同, 尺寸与 PDF's 原尺寸相同
+ 
+ @param dataOrPath PDF 数据: 'NSData' 或 PDF 文件路径: 'NSString'
+ 
+ @warning 当发生错误时, 返回 nil
  */
-+ (UIImage *)js_imageWithPDF:(id)dataOrPath;
++ (nullable UIImage *)js_imageWithPDF:(id)dataOrPath;
 
 /**
- 通过PDF文件数据或路径创建图片
+ 通过 PDF 文件数据或路径创建图片
  
- @discussion  如果该PDF文件包含多页, 仅返回第一页的内容.
- Image's 缩放比例为默认缩放比例, 大小与PDF文件大小相同
+ @discussion  如果该 PDF 文件包含多页, 仅返回第一页的内容.
+ Image's 比例与当前屏幕比例相同
+ 
+ @param dataOrPath PDF 数据: 'NSData' 或 PDF 文件路径: 'NSString'
+ @param size 新图片的尺寸, PDF 格式的内容会进行拉伸
+ 
+ @warning 当发生错误时, 返回 nil
  */
-+ (UIImage *)js_imageWithPDF:(id)dataOrPath
-                        size:(CGSize)size;
-
-///**
-// 创建Emoji表情图片
-// */
-//+ (UIImage *)js_imageWithEmoji:(NSString *)emoji
-//                          size:(CGFloat)size;
++ (nullable UIImage *)js_imageWithPDF:(id)dataOrPath
+                                 size:(CGSize)size;
 
 /**
- 通过颜色创建一个1x1的图片
+ 创建 Emoji 表情图片
  */
-+ (UIImage *)js_imageWithColor:(UIColor *)color;
++ (nullable UIImage *)js_imageWithEmoji:(NSString *)emoji
+                                   size:(CGFloat)size;
+
+/**
+ 通过颜色创建一个 1x1 的图片
+ */
++ (nullable UIImage *)js_imageWithColor:(UIColor *)color;
 
 /**
  通过颜色创建指定大小的图片
  */
-+ (UIImage *)js_imageWithColor:(UIColor *)color
-                          size:(CGSize)size;
++ (nullable UIImage *)js_imageWithColor:(UIColor *)color
+                                   size:(CGSize)size;
+
+/**
+ 通过自定义绘制代码创建并返回一个图像
+ */
++ (nullable UIImage *)js_imageWithSize:(CGSize)size
+                             drawBlock:(void (^)(CGContextRef context))drawBlock;
 
 #pragma mark 图片信息
 /**
@@ -76,196 +91,145 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)js_hasAlphaChannel;
 
 #pragma mark 图片处理
-///=============================================================================
-/// @name Modify Image
-///=============================================================================
-
 /**
- Draws the entire image in the specified rectangle, content changed with
- the contentMode.
- 
- @discussion This method draws the entire image in the current graphics context,
- respecting the image's orientation setting. In the default coordinate system,
- images are situated down and to the right of the origin of the specified
- rectangle. This method respects any transforms applied to the current graphics
- context, however.
- 
- @param rect        The rectangle in which to draw the image.
- 
- @param contentMode Draw content mode
- 
- @param clips       A Boolean value that determines whether content are confined to the rect.
+ 在指定尺寸的矩形内绘制图像内容, 图像内容将依据 contentMode 改变
  */
 - (void)js_drawInRect:(CGRect)rect
       withContentMode:(UIViewContentMode)contentMode
         clipsToBounds:(BOOL)clips;
 
 /**
- 获取一张经过缩放的图片.
- 图片可能会拉伸
+ 获取一张经过缩放的图片
+ 图片可能会被拉伸
  */
-- (UIImage *)js_imageByResizeToSize:(CGSize)size;
+- (nullable UIImage *)js_imageByResizeToSize:(CGSize)size;
 
 /**
- 获取一张经过缩放的图片. - 图片的展示模式
+ 获取一张经过缩放的图片 - 改变了图片的展示模式
  */
-- (UIImage *)js_imageByResizeToSize:(CGSize)size
-                        contentMode:(UIViewContentMode)contentMode;
+- (nullable UIImage *)js_imageByResizeToSize:(CGSize)size
+                                 contentMode:(UIViewContentMode)contentMode;
 
 /**
  获取一张经过裁剪的图片
  */
-- (UIImage *)js_imageByCropToRect:(CGRect)rect;
+- (nullable UIImage *)js_imageByCropToRect:(CGRect)rect;
 
 /**
- Returns a new image which is edge inset from this image.
+ 获取一张经过边缘插入后的图片
  
- 
- 
- @param insets  Inset (positive) for each of the edges, values can be negative to 'outset'.
- 
- @param color   Extend edge's fill color, nil means clear color.
- 
- @return        The new image, or nil if an error occurs.
+ @param insets  边缘插入 (正数), 数值可以为负数
+ @param color   边缘插入填充颜色, nil 表示颜色为透明色
  */
-- (UIImage *)js_imageByInsetEdge:(UIEdgeInsets)insets
-                       withColor:(UIColor *)color;
+- (nullable UIImage *)js_imageByInsetEdge:(UIEdgeInsets)insets
+                                withColor:(nullable UIColor *)color;
 
 /**
- Rounds a new image with a given corner size.
+ 获取一张经过裁剪圆角的图片
  
- @param radius  The radius of each corner oval. Values larger than half the
- rectangle's width or height are clamped appropriately to half
- the width or height.
+ @param radius  圆角半径
  */
-- (nullable UIImage *)imageByRoundCornerRadius:(CGFloat)radius;
+- (nullable UIImage *)js_imageByRoundCornerRadius:(CGFloat)radius;
 
 /**
- Rounds a new image with a given corner size.
+ 获取一张经过裁剪圆角的图片, 边缘插图宽度, 边缘插图颜色
  
- @param radius       The radius of each corner oval. Values larger than half the
- rectangle's width or height are clamped appropriately to
- half the width or height.
+ @param radius       圆角半径
+ @param borderWidth  边缘插图边界线宽度
+ @param borderColor  边缘插入颜色
+ */
+- (nullable UIImage *)js_imageByRoundCornerRadius:(CGFloat)radius
+                                      borderWidth:(CGFloat)borderWidth
+                                      borderColor:(nullable UIColor *)borderColor;
+
+/**
+ 获取一张经过裁剪圆角的图片, 边角 (左上, 右上, 左下, 右下), 边缘插图宽度, 边缘插图颜色, 接合类型
  
- @param borderWidth  The inset border line width. Values larger than half the rectangle's
- width or height are clamped appropriately to half the width
- or height.
+ @param radius         圆角半径
+ @param corners        边角 (左上, 右上, 左下, 右下)
+ @param borderWidth    边缘插图边界线宽度
+ @param borderColor    边缘插入颜色
+ @param borderLineJoin 连线接合类型
+ */
+- (nullable UIImage *)js_imageByRoundCornerRadius:(CGFloat)radius
+                                          corners:(UIRectCorner)corners
+                                      borderWidth:(CGFloat)borderWidth
+                                      borderColor:(nullable UIColor *)borderColor
+                                   borderLineJoin:(CGLineJoin)borderLineJoin;
+
+/**
+ 获取旋转后的图像 (相对于中心点)
  
- @param borderColor  The border stroke color. nil means clear color.
+ @param radians   逆时针旋转弧度 ⟲
+ @param fitSize   YES: 新图片的尺寸将会改变以适应旋转
+                  NO: 新图片的尺寸不会改变
  */
-- (nullable UIImage *)imageByRoundCornerRadius:(CGFloat)radius
-                                   borderWidth:(CGFloat)borderWidth
-                                   borderColor:(nullable UIColor *)borderColor;
+- (nullable UIImage *)js_imageByRotate:(CGFloat)radians
+                               fitSize:(BOOL)fitSize;
 
 /**
- Rounds a new image with a given corner size.
- 
- @param radius       The radius of each corner oval. Values larger than half the
- rectangle's width or height are clamped appropriately to
- half the width or height.
- 
- @param corners      A bitmask value that identifies the corners that you want
- rounded. You can use this parameter to round only a subset
- of the corners of the rectangle.
- 
- @param borderWidth  The inset border line width. Values larger than half the rectangle's
- width or height are clamped appropriately to half the width
- or height.
- 
- @param borderColor  The border stroke color. nil means clear color.
- 
- @param borderLineJoin The border line join.
+ 获取逆时针旋转 90° 后的图像 ⤺
+ 图像的宽高将互换
  */
-- (nullable UIImage *)imageByRoundCornerRadius:(CGFloat)radius
-                                       corners:(UIRectCorner)corners
-                                   borderWidth:(CGFloat)borderWidth
-                                   borderColor:(nullable UIColor *)borderColor
-                                borderLineJoin:(CGLineJoin)borderLineJoin;
+- (nullable UIImage *)js_imageByRotateLeft90;
 
 /**
- Returns a new rotated image (relative to the center).
- 
- @param radians   Rotated radians in counterclockwise.⟲
- 
- @param fitSize   YES: new image's size is extend to fit all content.
- NO: image's size will not change, content may be clipped.
+ 获取顺时针旋转 90° 后的图像 ⤼
+ 图像的宽高将互换
  */
-- (nullable UIImage *)imageByRotate:(CGFloat)radians fitSize:(BOOL)fitSize;
+- (nullable UIImage *)js_imageByRotateRight90;
 
 /**
- Returns a new image rotated counterclockwise by a quarter‑turn (90°). ⤺
- The width and height will be exchanged.
+ 获取旋转 180° 后的图像 ↻
  */
-- (nullable UIImage *)imageByRotateLeft90;
+- (nullable UIImage *)js_imageByRotate180;
 
 /**
- Returns a new image rotated clockwise by a quarter‑turn (90°). ⤼
- The width and height will be exchanged.
+ 获取垂直翻转后的图像 ⥯
  */
-- (nullable UIImage *)imageByRotateRight90;
+- (nullable UIImage *)js_imageByFlipVertical;
 
 /**
- Returns a new image rotated 180° . ↻
+ 获取水平翻转后的图像 ⇋
  */
-- (nullable UIImage *)imageByRotate180;
+- (nullable UIImage *)js_imageByFlipHorizontal;
+
+
+#pragma mark 图片效果
+/**
+ Tint Color
+ */
+- (nullable UIImage *)js_imageByTintColor:(UIColor *)color;
 
 /**
- Returns a vertically flipped image. ⥯
+ 获取一个灰度图像
  */
-- (nullable UIImage *)imageByFlipVertical;
+- (nullable UIImage *)js_imageByGrayscale;
 
 /**
- Returns a horizontally flipped image. ⇋
+ 获取图像的模糊效果, 适用于模糊任何内容
  */
-- (nullable UIImage *)imageByFlipHorizontal;
-
-
-#pragma mark - Image Effect
-///=============================================================================
-/// @name Image Effect
-///=============================================================================
+- (nullable UIImage *)js_imageByBlurSoft;
 
 /**
- Tint the image in alpha channel with the given color.
- 
- @param color  The color.
+ 获取图像的模糊效果, 适用于模糊除纯白色以外的任何内容 (效果类似 iOS Control Panel)
  */
-- (nullable UIImage *)imageByTintColor:(UIColor *)color;
+- (nullable UIImage *)js_imageByBlurLight;
 
 /**
- Returns a grayscaled image.
+ 获取图像的模糊效果, 适用于显示黑色文本 (效果类似 iOS Navigation Bar White)
  */
-- (nullable UIImage *)imageByGrayscale;
+- (nullable UIImage *)js_imageByBlurExtraLight;
 
 /**
- Applies a blur effect to this image. Suitable for blur any content.
+ 获取图像的模糊效果, 适用于显示白色文本 (效果类似 iOS Notification Center)
  */
-- (nullable UIImage *)imageByBlurSoft;
+- (nullable UIImage *)js_imageByBlurDark;
 
 /**
- Applies a blur effect to this image. Suitable for blur any content except pure white.
- (same as iOS Control Panel)
+ 获取图像的 Tint Color 模糊效果
  */
-- (nullable UIImage *)imageByBlurLight;
-
-/**
- Applies a blur effect to this image. Suitable for displaying black text.
- (same as iOS Navigation Bar White)
- */
-- (nullable UIImage *)imageByBlurExtraLight;
-
-/**
- Applies a blur effect to this image. Suitable for displaying white text.
- (same as iOS Notification Center)
- */
-- (nullable UIImage *)imageByBlurDark;
-
-/**
- Applies a blur and tint color to this image.
- 
- @param tintColor  The tint color.
- */
-- (nullable UIImage *)imageByBlurWithTint:(UIColor *)tintColor;
+- (nullable UIImage *)js_imageByBlurWithTint:(UIColor *)tintColor;
 
 /**
  Applies a blur, tint color, and saturation adjustment to this image,
@@ -293,11 +257,11 @@ NS_ASSUME_NONNULL_BEGIN
  @return               image with effect, or nil if an error occurs (e.g. no
  enough memory).
  */
-- (nullable UIImage *)imageByBlurRadius:(CGFloat)blurRadius
-                              tintColor:(nullable UIColor *)tintColor
-                               tintMode:(CGBlendMode)tintBlendMode
-                             saturation:(CGFloat)saturation
-                              maskImage:(nullable UIImage *)maskImage;
+- (nullable UIImage *)js_imageByBlurRadius:(CGFloat)blurRadius
+                                 tintColor:(nullable UIColor *)tintColor
+                                  tintMode:(CGBlendMode)tintBlendMode
+                                saturation:(CGFloat)saturation
+                                 maskImage:(nullable UIImage *)maskImage;
 
 @end
 

@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable NSData *)js_plistData;
 
 /**
- 返回 XML 属性列表祖父穿的序列化数组
+ 返回 XML 属性列表字符串的序列化数组
  */
 - (nullable NSString *)js_plistString;
 
