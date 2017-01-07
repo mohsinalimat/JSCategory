@@ -1,6 +1,5 @@
 # JSCategory
 
-[![CI Status](http://img.shields.io/travis/菅思博/JSCategory.svg?style=flat)](https://travis-ci.org/菅思博/JSCategory)
 [![Version](https://img.shields.io/cocoapods/v/JSCategory.svg?style=flat)](http://cocoapods.org/pods/JSCategory)
 [![License](https://img.shields.io/cocoapods/l/JSCategory.svg?style=flat)](http://cocoapods.org/pods/JSCategory)
 [![Platform](https://img.shields.io/cocoapods/p/JSCategory.svg?style=flat)](http://cocoapods.org/pods/JSCategory)
