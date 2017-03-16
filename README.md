@@ -1,15 +1,6 @@
 # JSCategory
 
-[![Version](https://img.shields.io/cocoapods/v/JSCategory.svg?style=flat)](http://cocoapods.org/pods/JSCategory)
-[![License](https://img.shields.io/cocoapods/l/JSCategory.svg?style=flat)](http://cocoapods.org/pods/JSCategory)
-[![Platform](https://img.shields.io/cocoapods/p/JSCategory.svg?style=flat)](http://cocoapods.org/pods/JSCategory)
-
 JSCategory: 常用类别集合
-
-## 导入方法
-```ruby
-pod 'JSCategory', '~> 1.2.0'
-```
 
 ## 使用方法
 
@@ -1519,6 +1510,23 @@ enough memory).
 @property (nonatomic) CGPoint js_origin;      ///< 快捷获取 frame.origin.
 @property (nonatomic) CGSize  js_size;        ///< 快捷获取 frame.size.
 
+```
+
+### UITextView+JSCategory
+```objc
+/**
+placeholder
+*/
+- (void)js_setupPlaceholderLabelWithPlaceholder:(NSString *)placeholder
+                                           font:(CGFloat)font
+                                          color:(UIColor *)color;
+
+/**
+limit length
+*/
+- (void)js_setupLimitLengthLabelWithLimitLength:(NSNumber *)limitLength
+                                           font:(CGFloat)font
+                                          color:(UIColor *)color;
 ```
 
 ## 作者
