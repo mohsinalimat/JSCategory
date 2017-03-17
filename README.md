@@ -9,6 +9,8 @@ JSCategory: 常用类别集合
 #import "JSCategory.h"
 ```
 
+注意：请在 `Linked Frameworks and Libraries` 中添加 `libz.tbd`
+
 ### NSArray+JSCategory
 
 #### NSArray
